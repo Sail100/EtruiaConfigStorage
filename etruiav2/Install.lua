@@ -4,14 +4,7 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 
 local Window = OrionLib:MakeWindow({Name = "Etruia Installation", HidePremium = false, IntroText = "Etruia installion UI is loading.."})
 
-local function notify(name, content, time) 
-   OrionLib:MakeNotification({
-	Name = name,
-	Content = content,
-	Image = "rbxassetid://4483345998",
-	Time = time
-})
-end
+
 
 
 local ETab = Window:MakeTab({
@@ -28,9 +21,9 @@ local UTab = Window:MakeTab({
 ETab:AddButton({
 	Name = "Install V2",
 	Callback = function()
-      		print("button pressed")
-    local GUIPostions = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/guiPos.txt')))()
-    local profile = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/profiles.txt')))()
+      	print("button pressed")
+    local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/guiPos.txt")
+    local profile = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/profiles.txt")
     
     wait(.5)
     
@@ -70,7 +63,7 @@ ETab:AddButton({
   
     wait(.5)
       
-      notify("Completion", "You may now use the Render Intents Loadstring, Etruia has been installed!", 7)
+      
   	end    
 })
 
@@ -78,9 +71,9 @@ UTab:AddButton({
 	Name = "Remove V2",
 	Callback = function()
       		print("button pressed")
-      local GUIPostions = loadstring(game:HttpGet(('https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')))()
-    local profile = loadstring(game:HttpGet(('https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/Render_Blurple6872265039.vapeprofile.txt')))()
-    
+    local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
+    local profile = game:HttpGet("https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/Render_Blurple6872265039.vapeprofile.txt")
+   
     wait(.5)
     
     -- notification
@@ -116,8 +109,7 @@ OrionLib:MakeNotification({
     
     wait(.5)
    
-    
-      notify("Completion", "Etruia has been uninstalled.", 4)
+   
     
   	end    
 })
