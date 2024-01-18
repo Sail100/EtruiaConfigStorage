@@ -34,7 +34,6 @@ end
 	if not delfile then
 		lplr:Kick("Executor does not support delfile, use Fluxus or Delta")
 	end
-end)
 
 local function install()
     local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/guiPos.txt")
