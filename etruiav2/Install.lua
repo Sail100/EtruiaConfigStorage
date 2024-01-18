@@ -5,6 +5,8 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "Etruia Installation", HidePremium = false, IntroText = "Etruia installion UI is loading.."})
 
 local lplr = game.Players.LocalPlayer
+local creation = 'CreatedFile'
+    
 
 local function notify(name, text, time)
      OrionLib:MakeNotification({
@@ -41,13 +43,8 @@ local function install()
     
     wait(.5)
     
-    if not isfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt') then
-     writefile(vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', 'CreatedFile')
- end
- 
-  if not isfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt') then
-     writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', 'CreatedFile')
- end
+    
+    
     
     OrionLib:MakeNotification({
 	Name = "Installation",
@@ -67,7 +64,7 @@ task.wait(1)
     wait(.5)
    
     OrionLib:MakeNotification({
-	Name = "Installion",
+	Name = "Installation",
 	Content = "Deleted old profiles.",
 	Image = "rbxassetid://4483345998",
 	Time = 7
@@ -124,13 +121,7 @@ UTab:AddButton({
    
     wait(.5)
     
-       if not isfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt') then
-     writefile(vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', 'CreatedFile')
- end
- 
-  if not isfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt') then
-     writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', 'CreatedFile')
- end
+
     
     OrionLib:MakeNotification({
 	Name = "Installation",
