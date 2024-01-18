@@ -13,7 +13,22 @@ local function notify(name, content, time)
 })
 end
 
-function installVerisonTwo()
+
+local ETab = Window:MakeTab({
+	Name = "Install Etruia",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local UTab = Window:MakeTab({
+	Name = "Uninstall Etruia",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+ETab:AddButton({
+	Name = "Install V2",
+	Callback = function()
+      		print("button pressed")
     local GUIPostions = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/guiPos.txt')))()
     local profile = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/profiles.txt')))()
     
@@ -54,12 +69,16 @@ function installVerisonTwo()
 
   
     wait(.5)
-   
-    
-end
+      
+      notify("Completion", "You may now use the Render Intents Loadstring, Etruia has been installed!", 7)
+  	end    
+})
 
-function removeVerisonTwo()
-    local GUIPostions = loadstring(game:HttpGet(('https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')))()
+UTab:AddButton({
+	Name = "Remove V2",
+	Callback = function()
+      		print("button pressed")
+      local GUIPostions = loadstring(game:HttpGet(('https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')))()
     local profile = loadstring(game:HttpGet(('https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/Render_Blurple6872265039.vapeprofile.txt')))()
     
     wait(.5)
@@ -98,34 +117,6 @@ OrionLib:MakeNotification({
     wait(.5)
    
     
-end
-
-local ETab = Window:MakeTab({
-	Name = "Install Etruia",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-local UTab = Window:MakeTab({
-	Name = "Uninstall Etruia",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-ETab:AddButton({
-	Name = "Install V2",
-	Callback = function()
-      		print("button pressed")
-      installVerisonTwo()
-      
-      notify("Completion", "You may now use the Render Intents Loadstring, Etruia has been installed!", 7)
-  	end    
-})
-
-UTab:AddButton({
-	Name = "Remove V2",
-	Callback = function()
-      		print("button pressed")
-      removeVerisonTwo()
       notify("Completion", "Etruia has been uninstalled.", 4)
     
   	end    
