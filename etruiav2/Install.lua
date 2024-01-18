@@ -13,7 +13,7 @@ local function notify(name, content, time)
 })
 end
 
-local function installVerisonTwo()
+function installVerisonTwo()
     local GUIPostions = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/guiPos.txt')))()
     local profile = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/profiles.txt')))()
     
@@ -58,7 +58,7 @@ local function installVerisonTwo()
     
 end
 
-local function removeVerisonTwo()
+function removeVerisonTwo()
     local GUIPostions = loadstring(game:HttpGet(('https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')))()
     local profile = loadstring(game:HttpGet(('https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/Render_Blurple6872265039.vapeprofile.txt')))()
     
@@ -122,7 +122,7 @@ ETab:AddButton({
 })
 
 UTab:AddButton({
-	Name = "Button!",
+	Name = "Remove V2",
 	Callback = function()
       		print("button pressed")
       removeVerisonTwo()
