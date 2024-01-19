@@ -289,9 +289,9 @@ local UUTab = Window:MakeTab({
 })
 
 
-section("UUTabUpd1", UUTab, "1-16-24 | Created github.")
-section("UUTabUpd2", UUTab, "1-17-24 | Added V2 Installion")
-section("UUTabUpd3", UUTab, "1-18-24 | Added V2.0.1 Installation")
+section("UUTabUpd1", UUTab, "1-16-24 | - Created github.")
+section("UUTabUpd2", UUTab, "1-17-24 | - Added V2 Installion")
+section("UUTabUpd3", UUTab, "1-18-24 | - Added V2.0.1 Installation")
 section("UUTabUpd4", UUTab, "1/19/24 | - Added Tabs [ Main Tab, Tutorial Tab, and Updates Tab. ] ")
 section("UUTabUpd5", UUTab, "1/19/24 | - Updated Installer ")
 UUTab:AddLabel("More updates coming soon!")
