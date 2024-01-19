@@ -92,6 +92,64 @@ task.wait(1)
   
     wait(.5)
 end
+local function installv2()
+    local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
+    local profile = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/Render_Blurple6872274481.vapeprofile.txt")
+    local profile2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/Render_Blurple6872265039.vapeprofile.txt")
+    
+    wait(.5)
+    
+    
+    
+  
+    OrionLib:MakeNotification({
+	Name = "Installation",
+	Content = "Installing V2.0.1...",
+	Image = "rbxassetid://4483345998",
+	Time = 3
+})
+
+task.wait(1)
+    
+    print('Installing..')
+    
+    delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
+    delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
+   
+
+
+    wait(.5)
+   
+    OrionLib:MakeNotification({
+	Name = "Installation",
+	Content = "Deleted old profiles.",
+	Image = "rbxassetid://4483345998",
+	Time = 7
+})
+ 
+    
+    print('Writing Files..')
+    
+    task.wait(1)
+    
+    writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', profile)
+    print('Writen Profile')
+   wait(.5)
+    writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', GUIPostions)
+    wait(.5)
+    writefile('vape/Profiles/Render_Blurple6872265039.vapeprofile.txt', profile2)
+    print('Writing Profiles + GUIPostions')
+    
+    OrionLib:MakeNotification({
+	Name = "Installation",
+	Content = "Sucessfully installed Etruia update v.2.0.1!",
+	Image = "rbxassetid://4483345998",
+	Time = 10
+})
+
+  
+    wait(.5)
+end
 
 local ETab = Window:MakeTab({
 	Name = "Install Etruia",
@@ -111,6 +169,19 @@ ETab:AddButton({
                        install() 
   	end    
 })
+
+local ETabS = ETab:AddSection({
+	Name = "Installation of update v2.0.1"
+})
+
+ETab:AddButton({
+	Name = "Install V2.0.1",
+	Callback = function()
+      	print("button pressed")
+                       installv2()
+  	end    
+})
+
 
 UTab:AddButton({
 	Name = "Remove V2",
