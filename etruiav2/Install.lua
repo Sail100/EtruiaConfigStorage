@@ -1,4 +1,4 @@
--- Sail100, load.lua
+-- Sail100, installer.lua
 
 print("loader")
 
