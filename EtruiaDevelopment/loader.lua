@@ -3,13 +3,9 @@
 -- THIS SCRIPT WILL BE FOR DEVELOPMENT AND OTHER PURPOSES.  EXPECT THIS NOT TO WORK SOMETIMES.
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-
 local Window = OrionLib:MakeWindow({Name = "Etruia Installation", HidePremium = false, IntroText = "Etruia installion UI is loading.."})
-
 local lplr = game.Players.LocalPlayer
-local creation = 'CreatedFile'
     
-
 local function notify(name, text, time)
      OrionLib:MakeNotification({
 	Name = name,
@@ -19,6 +15,7 @@ local function notify(name, text, time)
 })
 end
 
+function test() 
 	if not isfile then
 		lplr:Kick("Executor does not support isfile, use Fluxus or Delta.")
 	end
@@ -38,6 +35,9 @@ end
 	if not delfile then
 		lplr:Kick("Executor does not support delfile, use Fluxus or Delta")
 	end
+end
+
+test()
 
 local function install()
     local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/guiPos.txt")
@@ -94,6 +94,7 @@ task.wait(1)
   
     wait(.5)
 end
+
 local function installv2()
     local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
     local profile = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/Render_Blurple6872274481.vapeprofile.txt")
@@ -153,6 +154,9 @@ task.wait(1)
     wait(.5)
 end
 
+
+-- UI 
+
 local ETab = Window:MakeTab({
 	Name = "Install Etruia",
 	Icon = "rbxassetid://4483345998",
@@ -182,6 +186,10 @@ ETab:AddButton({
       	print("button pressed")
                        installv2()
   	end    
+})
+
+local ETabS = ETab:AddSection({
+	Name = "Installation of update [UNKNOWN]"
 })
 
 
