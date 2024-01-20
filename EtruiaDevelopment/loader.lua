@@ -114,7 +114,7 @@ local function installv2()
 
 OrionLib:MakeNotification({
 	Name = "Installation",
-	Content = "Installing V2.0.1...",
+	Content = "Installing V2.0.1... If there isn't a second notification after 1.5s then install render with profiles.",
 	Image = "rbxassetid://4483345998",
 	Time = 3
 })
@@ -123,18 +123,8 @@ task.wait(1)
     
     print('Installing..')
     
-
-local s,e = pcall(function)
-    delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
-    delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
-end)
-
-if not s then
-	if string.find(e, "File does not exist!") then
-           lplr:Kick("womp womp, maybe make sure you have profiles installed")
-	end
-end
-
+delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
+ delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
 
     wait(.5)
    
@@ -244,13 +234,7 @@ UTab:AddButton({
     local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
     local profile = game:HttpGet("https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/Render_Blurple6872265039.vapeprofile.txt")
 
-if not isfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt') then
-            lplr:Kick("womp womp, maybe make sure you have profiles installed")
-	end
 
-	if not isfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt') then
-              lplr:Kick("womp womp, maybe make sure you have profiles installed")
-			end
     wait(.5)
     
 
