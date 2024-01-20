@@ -52,7 +52,14 @@ local function install()
     local profile = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/profiles.txt")
     
     wait(.5)
-    
+
+	if not isfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt') then
+            lplr:Kick("womp womp, maybe make sure you have profiles installed")
+	end
+
+	if not isfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt') then
+              lplr:Kick("womp womp, maybe make sure you have profiles installed")
+	end
     
     
     
@@ -111,7 +118,15 @@ local function installv2()
     wait(.5)
     
     
-    
+    if not isfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt') then
+            lplr:Kick("womp womp, maybe make sure you have profiles installed")
+	end
+
+	if not isfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt') then
+              lplr:Kick("womp womp, maybe make sure you have profiles installed")
+	end
+
+
   
     OrionLib:MakeNotification({
 	Name = "Installation",
