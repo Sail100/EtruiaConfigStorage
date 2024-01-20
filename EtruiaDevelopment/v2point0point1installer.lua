@@ -288,7 +288,8 @@ end
 Install.MouseButton1Click:Connect(function()
 	MainLoading.Visible = true
 	wait(3)
-
+	Install21()
+		
 end)
 
 Close.MouseButton1Click:Connect(function()
