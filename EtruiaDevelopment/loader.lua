@@ -251,7 +251,14 @@ UTab:AddButton({
       		print("button pressed")
     local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
     local profile = game:HttpGet("https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/Render_Blurple6872265039.vapeprofile.txt")
-   
+
+if not isfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt') then
+            lplr:Kick("womp womp, maybe make sure you have profiles installed")
+	end
+
+	if not isfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt') then
+              lplr:Kick("womp womp, maybe make sure you have profiles installed")
+			end
     wait(.5)
     
 
