@@ -123,18 +123,17 @@ task.wait(1)
     
     print('Installing..')
     
-task.spawn(function()
-   local s,e = pcall(function()
+
+local s,e = pcall(function)
     delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
     delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
 end)
-			
- if not s then
-    if string.find(e, "File does not exist!") then
-         lplr:Kick("womp womp, maybe make sure you have profiles installed")
+
+if not s then
+	if string.find(e, "File does not exist!") then
+           lplr:Kick("womp womp, maybe make sure you have profiles installed")
 	end
 end
-   
 
 
     wait(.5)
