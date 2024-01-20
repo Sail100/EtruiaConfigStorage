@@ -133,7 +133,7 @@ end)
     if string.find(e, "File does not exist!") then
          lplr:Kick("womp womp, maybe make sure you have profiles installed")
 	end
-end)
+end
    
 
 
