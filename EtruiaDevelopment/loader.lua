@@ -117,9 +117,9 @@ local function installv2()
    end)	
 		if s then return end
 		if not s then
-                    if e == "ErrorMessage" then
+                    if e == "File does not exist!" then
                          lplr:Kick("womp womp, maybe make sure you have profiles installed")
-			elseif not e == "ErrorMessage" then
+			elseif not e == "File does not exist!" then
 				print(e)
 			end
 		end
