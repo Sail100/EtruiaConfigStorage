@@ -276,7 +276,7 @@ local Cornor_6 = Instance.new("UICorner")
         updateProgress("Finished installation, you may CLOSE the UI.")
         notify("Installation", "Finished installation!", 4)
 	wait(1)
-	repeat wait() until MainLoading.Visible = false
+	task.wait(10)
 	updateProgress("")
     end 
 function updateProgress(text)
