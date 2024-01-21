@@ -288,8 +288,8 @@ end
 Install.MouseButton1Click:Connect(function()
 	MainLoading.Visible = true
 	wait(3)
-	Install21()
-		
+	InstallV21()
+	
 end)
 
 Close.MouseButton1Click:Connect(function()
@@ -304,4 +304,5 @@ CloseUIS.MouseButton1Click:Connect(function()
 	InstallMain.Visible = false
 end)
 
+updateVerison("V0.0.1 Installer")
 
