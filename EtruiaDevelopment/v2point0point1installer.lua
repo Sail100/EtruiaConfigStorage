@@ -42,8 +42,7 @@ local Icon = Instance.new("ImageLabel")
 local Cornor_2 = Instance.new("UICorner")
 local TTL = Instance.new("TextLabel")
 local Install = Instance.new("TextButton")
-local Close1 = Instance.new("TextButton")
-local Cornor_4 = Instance.new("UICornor")
+
 local Cornor_3 = Instance.new("UICorner")
 local VER = Instance.new("TextLabel")
 local MainLoading = Instance.new("Frame")
@@ -56,6 +55,8 @@ local Close = Instance.new("TextButton")
 local Cornor_5 = Instance.new("UICorner")
 local CloseUIS = Instance.new("TextButton")
 local Cornor_6 = Instance.new("UICorner")
+local Close10 = Instance.new("TextButton")
+local Cornor_10 = Instance.new("UICornor")
 
 	installui.Name = tostring(math.random())
 	installui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -115,22 +116,22 @@ local Cornor_6 = Instance.new("UICorner")
 	Install.TextSize = 30.000
 	Install.TextWrapped = true
 	
-	Close1.Name = "Close"
-	Close1.Parent = InstallMain
-	Close1.BackgroundColor3 = Color3.fromRGB(255,0,0)
-	Close1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Close1.BorderSizePixel = 0
-	Close1.Position = UDim2.new(0.336065561, 0, 0.722891449, 0)
-	Close1.Size = UDim2.new(0, 157, 0, 32)
-	Close1.Font = Enum.Font.GothamBold
-	Close1.Text = "Install"
-	Close1.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Close1.TextSize = 30.000
-	Close1.TextWrapped = true
+	Close10.Name = "Close"
+	Close10.Parent = InstallMain
+	Close10.BackgroundColor3 = Color3.fromRGB(255,0,0)
+	Close10.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Close10.BorderSizePixel = 0
+	Close10.Position = UDim2.new(0.336065561, 0, 0.722891449, 0)
+	Close10.Size = UDim2.new(0, 157, 0, 32)
+	Close10.Font = Enum.Font.GothamBold
+	Close10.Text = "Install"
+	Close10.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Close10.TextSize = 30.000
+	Close10.TextWrapped = true
 
-	Cornor_3.CornerRadius = UDim.new(0, 5)
-	Cornor_3.Name = "Cornor"
-	Cornor_3.Parent = Install
+	Cornor_10.CornerRadius = UDim.new(0, 5)
+	Cornor_10.Name = "Cornor"
+	Cornor_10.Parent = Install
 
 	Cornor_4.CornerRadius = UDim.new(0, 5)
 	Cornor_4.Name = "Cornor"
