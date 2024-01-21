@@ -56,7 +56,7 @@ local Cornor_5 = Instance.new("UICorner")
 local CloseUIS = Instance.new("TextButton")
 local Cornor_6 = Instance.new("UICorner")
 local Close10 = Instance.new("TextButton")
-local Cornor_10 = Instance.new("UICornor")
+local Cornor_10 = Instance.new("UICorner")
 
 	installui.Name = tostring(math.random())
 	installui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
