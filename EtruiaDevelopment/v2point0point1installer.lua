@@ -42,6 +42,8 @@ local Icon = Instance.new("ImageLabel")
 local Cornor_2 = Instance.new("UICorner")
 local TTL = Instance.new("TextLabel")
 local Install = Instance.new("TextButton")
+local Close1 = Instance.new("TextButton")
+local Cornor_4 = Instance.new("UICornor")
 local Cornor_3 = Instance.new("UICorner")
 local VER = Instance.new("TextLabel")
 local MainLoading = Instance.new("Frame")
@@ -112,10 +114,27 @@ local Cornor_6 = Instance.new("UICorner")
 	Install.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Install.TextSize = 30.000
 	Install.TextWrapped = true
+	
+	Close1.Name = "Close"
+	Close1.Parent = InstallMain
+	Close1.BackgroundColor3 = Color3.fromRGB(255,0,0)
+	Close1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Close1.BorderSizePixel = 0
+	Close1.Position = UDim2.new(0.336065561, 0, 0.722891449, 0)
+	Close1.Size = UDim2.new(0, 157, 0, 32)
+	Close1.Font = Enum.Font.GothamBold
+	Close1.Text = "Install"
+	Close1.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Close1.TextSize = 30.000
+	Close1.TextWrapped = true
 
 	Cornor_3.CornerRadius = UDim.new(0, 5)
 	Cornor_3.Name = "Cornor"
 	Cornor_3.Parent = Install
+
+	Cornor_4.CornerRadius = UDim.new(0, 5)
+	Cornor_4.Name = "Cornor"
+	Cornor_4.Parent = Close1
 
 	VER.Name = "VER"
 	VER.Parent = InstallMain
