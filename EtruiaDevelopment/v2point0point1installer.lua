@@ -276,6 +276,7 @@ local Cornor_6 = Instance.new("UICorner")
         updateProgress("Finished installation, you may CLOSE the UI.")
         notify("Installation", "Finished installation!", 4)
 	wait(1)
+	repeat wait() until MainLoading.Visible = false
 	updateProgress("")
     end 
 function updateProgress(text)
@@ -308,5 +309,5 @@ CloseUIS.MouseButton1Click:Connect(function()
 	InstallMain.Visible = false
 end)
 
-updateVerison("V0.0.1")
+updateVerison("V0.0.1 UI")
 
