@@ -193,7 +193,7 @@ local Cornor_6 = Instance.new("UICorner")
 	progress.Position = UDim2.new(0.20629032, 0, 0.489576072, 0)
 	progress.Size = UDim2.new(0, 619, 0, 74)
 	progress.Font = Enum.Font.Ubuntu
-	progress.Text = "Text"
+	progress.Text = ""
 	progress.TextColor3 = Color3.fromRGB(255, 255, 255)
 	progress.TextSize = 30.000
 	progress.TextWrapped = true
@@ -258,7 +258,7 @@ local Cornor_6 = Instance.new("UICorner")
         task.wait(0.1)
         updateProgress("Deleted: vape/Profiles/Render_Blurple6872265039.vapeprofile.txt")
         wait(1)
-        notify("Installtion of V2.0.1", "Writing Files...", 4)
+        notify("Installation of V2.0.1", "Writing Files...", 4)
         writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', GUIPostions)
         task.wait(1)
         updateProgress("Writen: vape/Profiles/vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
@@ -272,7 +272,7 @@ local Cornor_6 = Instance.new("UICorner")
         updateProgress("Writen: vape/Profiles/Render_Blurple6872265039.vapeprofile.txt")
         wait(1)
         updateProgress("Finished, you may CLOSE the UI.")
-        notify("Installtion", "Finished intallition!", 4)
+        notify("Installation", "Finished installation!", 4)
     end 
 function updateProgress(text)
 	progress.Text = text
@@ -304,5 +304,5 @@ CloseUIS.MouseButton1Click:Connect(function()
 	InstallMain.Visible = false
 end)
 
-updateVerison("V0.0.1 Installer")
+updateVerison("V0.0.1")
 
