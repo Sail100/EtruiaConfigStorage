@@ -115,27 +115,31 @@ local Cornor_10 = Instance.new("UICorner")
 	Install.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Install.TextSize = 30.000
 	Install.TextWrapped = true
-	
+
+
 	Close10.Name = "Close"
 	Close10.Parent = InstallMain
-	Close10.BackgroundColor3 = Color3.fromRGB(255,0,0)
+	Close10.BackgroundColor3 = Color3.fromRGB(67, 194, 47)
+	Close10.BackgroundTransparency = 1.000
 	Close10.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Close10.BorderSizePixel = 0
-	Close10.Position = UDim2.new(0.765929818, 0, 0.0556560941, 0)
-	Close10.Size = UDim2.new(0, 157, 0, 32)
+	Close10.Position = UDim2.new(0.825136602, 0, 0, 0)
+	Close10.Size = UDim2.new(0, 70, 0, 33)
 	Close10.Font = Enum.Font.GothamBold
-	Close10.Text = "Close"
+	Close10.Text = "X"
 	Close10.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Close10.TextSize = 30.000
+	Close10.TextSize = 14.000
 	Close10.TextWrapped = true
 
 	Cornor_10.CornerRadius = UDim.new(0, 5)
 	Cornor_10.Name = "Cornor"
-	Cornor_10.Parent = Close10
+	Cornor_10.Parent = Close
+
+	
 
 	Cornor_4.CornerRadius = UDim.new(0, 5)
 	Cornor_4.Name = "Cornor"
-	Cornor_4.Parent = Close1
+	Cornor_4.Parent = Install
 
 	VER.Name = "VER"
 	VER.Parent = InstallMain
