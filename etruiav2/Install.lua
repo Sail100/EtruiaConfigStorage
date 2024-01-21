@@ -20,104 +20,11 @@ local function notify(name, text, time)
 })
 end
 
-function installv1()
-    delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
-    delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
-
-
-    wait(.5)
-   
-    OrionLib:MakeNotification({
-	Name = "Installation",
-	Content = "Deleted old profiles.",
-	Image = "rbxassetid://4483345998",
-	Time = 7
-})
- 
-    
-    print('Writing Files..')
-    
-    task.wait(1)
-    
-    writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', profile)
-    print('Writen Profile')
-   wait(.5)
-    writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', GUIPostions)
-    wait(.5)
-    print('Writing Profiles + GUIPostions')
-    
-    OrionLib:MakeNotification({
-	Name = "Installation",
-	Content = "Sucessfully installed Etruia!",
-	Image = "rbxassetid://4483345998",
-	Time = 10
-})
-
-  
-    wait(.5)
-end
-
-function installv1()
-    local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/guiPos.txt")
-    local profile = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/profiles.txt")
-    
-    wait(.5)
-    
-    
-    
-    
-    OrionLib:MakeNotification({
-	Name = "Installation",
-	Content = "Installing...",
-	Image = "rbxassetid://4483345998",
-	Time = 3
-})
-
-task.wait(1)
-    
-    print('Installing..')
-    delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
-    delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
-
-
-    wait(.5)
-   
-    OrionLib:MakeNotification({
-	Name = "Installation",
-	Content = "Deleted old profiles.",
-	Image = "rbxassetid://4483345998",
-	Time = 7
-})
- 
-    
-    print('Writing Files..')
-    
-    task.wait(1)
-    
-    writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', profile)
-    print('Writen Profile')
-   wait(.5)
-    writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', GUIPostions)
-    wait(.5)
-    print('Writing Profiles + GUIPostions')
-    
-    OrionLib:MakeNotification({
-	Name = "Installation",
-	Content = "Sucessfully installed Etruia!",
-	Image = "rbxassetid://4483345998",
-	Time = 10
-})
-
-  
-    wait(.5)
-end
-
 function section(sectionname, tab, text)
     local sectionname = tab:AddSection({
 	Name = text
 })
 end
-
 function test() 
 	if not isfile then
 		lplr:Kick("Executor does not support isfile, use Fluxus or Delta.")
@@ -126,7 +33,6 @@ function test()
 	if not readfile then
 		lplr:Kick("Executor does not support readfile, use Fluxus or Delta.")
 	end
-
 	if not makefolder then
 		lplr:Kick("Executor does not support makefolder, use Fluxus or Delta.")
 	end
@@ -134,39 +40,78 @@ function test()
 	if not writefile then
 		lplr:Kick("Executor does not support writefile, use Fluxus or Delta.")
 	end
-
 	if not delfile then
 		lplr:Kick("Executor does not support delfile, use Fluxus or Delta")
 	end
 end
 
-test()
+function section(sectionname, tab, text)
+    local sectionname = tab:AddSection({
+	Name = text
+})
+end
+
 
 local function install()
 
 	
-	if isfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt') then
-	if isfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt') then
-			installv1()
-		end	
-	end
+    
+end
 
-if not isfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt') then
-	if not isfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt') then
-			lplr:Kick("womp womp, didn't have profiles installed. next time install it.")
-		end	
-	end
-	
+function installv1()
+    local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/guiPos.txt")
+    local profile = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/profiles.txt")
+    
+    wait(.5)
+
+    delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
+    delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
+
+
+    wait(.5)
+   
+    OrionLib:MakeNotification({
+	Name = "Installation",
+	Content = "Deleted old profiles.",
+	Image = "rbxassetid://4483345998",
+	Time = 7
+})
+ 
+    
+    print('Writing Files..')
+    
+    task.wait(1)
+    
+    writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', profile)
+    print('Writen Profile')
+   wait(.5)
+    writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', GUIPostions)
+    wait(.5)
+    print('Writing Profiles + GUIPostions')
+    
+  
+    wait(.5)
+    
+    
+    OrionLib:MakeNotification({
+	Name = "Installation",
+	Content = "Sucessfully installed Etruia!",
+	Image = "rbxassetid://4483345998",
+	Time = 10
+})
+
+  
+    wait(.5)
    
 end
 
-function v2()
-    local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
+
+local function installv2()
+       local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
     local profile = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/Render_Blurple6872274481.vapeprofile.txt")
     local profile2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/Render_Blurple6872265039.vapeprofile.txt")
     
     wait(.5)
-    
     
     
   
@@ -180,6 +125,10 @@ function v2()
 task.wait(1)
     
     print('Installing..')
+	delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
+        delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
+
+	
 	    wait(.5)
    
     OrionLib:MakeNotification({
@@ -211,29 +160,10 @@ task.wait(1)
 
   
     wait(.5)
-end
-
-local function installv2()
-   
     
-    delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
-    delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
+    
 
-	-- install
-if isfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt') then
-	if isfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt') then
-			v2()
-		end	
-	end
 
-	-- kick
-if not isfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt') then
-	if not isfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt') then
-		 if not isfile('vape/vape/Profiles/Render_Blurple6872265039.vapeprofile.txt') then
-		lplr:Kick("womp womp, didn't have profiles installed. next time install it.")
-			end
-		end	
-	end
 end
 
 
