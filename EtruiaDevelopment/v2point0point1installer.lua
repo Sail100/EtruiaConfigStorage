@@ -270,7 +270,7 @@ local Cornor_10 = Instance.new("UICorner")
     
         print("[INSTALLING] Deleting profiles...")
     
-        delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
+      --  delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
         task.wait(1)
         updateProgress("Deleted: vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
         wait(1)    
