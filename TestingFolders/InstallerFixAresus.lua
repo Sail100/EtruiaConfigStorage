@@ -161,7 +161,7 @@ return (function(ria)
 	
 	local profiles = {}
 	profiles = createoption({
-		Name = 'Install Profiles', 
+		Name = 'Install Profiles [This fix will install profiles either way.]', 
 		Default = isfile('ria.json') == false,
 		Function = function(calling) 
 			profiles.Enabled = calling 
