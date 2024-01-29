@@ -1,3 +1,8 @@
+--[[
+	Installer that only works for non arceus users, and installs reg profiles.
+	sammz | Sail100 | desxir.
+]]
+
 return (function(ria) 
 	local tweenService = game:GetService('TweenService')
 	local httpService = game:GetService('HttpService')
@@ -429,9 +434,9 @@ return (function(ria)
 		repeat task.wait() until profilesLoaded 
 	
 		local profiles = {}
-		for i,v next profiledata do
+		for i,v next, profiledata do
 			table.insert(taskfunctions, {
-				Text = 'Writing Profiles',
+				Text = 'Writing Profiles [vape/Profiles/]'..v,
 				Function = function()
 					local contents = game:HttpGet("https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/"..v)
 					writefile('vape/Profiles/'..v, contents)
@@ -479,5 +484,5 @@ writefile('ria.json', httpService:JSONEncode({Key = ria, Client = game:GetServic
 		end
 	}) 
 	makefolder('InstallerFix')
-	writefile('InstallerFix/data.json', 'v.1')
+	writefile('InstallerFix/data.json', 'v.1.02')
 end)
