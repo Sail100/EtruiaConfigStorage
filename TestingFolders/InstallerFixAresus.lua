@@ -415,7 +415,7 @@ return (function(ria)
 		table.insert(taskfunctions, {
 			Text = 'Fetching Profiles',
 			Function = function()
-			   local profiletab = httpService:JSONDecode(httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/Contents/Libaries/Profiles'})).Body
+			   local profiletab = httpService:JSONDecode(httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/Profiles'})).Body
 				for i,v in next, profiletab do 
 					assert(v.name, 'no name found lol')
 					table.insert(profiledata, v.name) 
@@ -424,41 +424,23 @@ return (function(ria)
 				task.wait(0.5)
 			end
 		}) 
+
 		
 		repeat task.wait() until profilesLoaded 
 	
 		local profiles = {}
-		for i,v in next, profiledata do 
+		for i,v next profiledata do
 			table.insert(taskfunctions, {
-				Text = 'Writing vape/Profiles/'..v,
+				Text = 'Writing Profiles',
 				Function = function()
-					local contents = httprequest({Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles'..v}).Body
-					if v:find('vapeprofiles') and isfile('vape/Profiles/'..v) then 
-						local onlinedata = httpService:JSONDecode(contents)
-						local localdata = httpService:JSONDecode(readfile('vape/Profiles/'..v))
-						local default = true
-						for i2, v2 in next, onlinedata do 
-							if localdata[i2] == nil or v2.Selected then 
-								if not default then 
-									default = (v2.Selected ~= true) 
-								end
-								localdata[i2] = {Selected = v2.Selected or localdata[i2].Selected, Keybind = v2.Keybind == '' and localdata[i2].Keybind or v2.Keybind}
-							end
-						end
-						localdata.default = (localdata.default or {Selected = default, Keybind = ''})
-						localdata.default.Selected = default
-						writefile('vape/Profiles/'..v, httpService:JSONEncode(localdata)) 
-					else 
-						writefile('vape/Profiles/'..v, contents) 
-					end
+					local contents = game:HttpGet("https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/"..v)
+					writefile('vape/Profiles/'..v, contents)
 				end
 			})
 		end
-	end
+		
 
-	-- new installer profile code here (soon)
-
-	writefile('ria.json', httpService:JSONEncode({Key = ria, Client = game:GetService('RbxAnalyticsService'):GetClientId()}))
+writefile('ria.json', httpService:JSONEncode({Key = ria, Client = game:GetService('RbxAnalyticsService'):GetClientId()}))
 	
 	local assetsloaded 
 	local assets = {}
@@ -496,4 +478,6 @@ return (function(ria)
 			task.wait(0.2)
 		end
 	}) 
+	makefolder('InstallerFix')
+	writefile('InstallerFix/data.json', 'v.1')
 end)
