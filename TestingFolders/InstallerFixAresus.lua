@@ -161,7 +161,7 @@ return (function(ria)
 	
 	local profiles = {}
 	profiles = createoption({
-		Name = 'Install Profiles [This fix will install profiles either way.]', 
+		Name = 'Install Profiles', 
 		Default = isfile('ria.json') == false,
 		Function = function(calling) 
 			profiles.Enabled = calling 
@@ -455,6 +455,8 @@ return (function(ria)
 			})
 		end
 	end
+
+	-- new installer profile code here (soon)
 
 	writefile('ria.json', httpService:JSONEncode({Key = ria, Client = game:GetService('RbxAnalyticsService'):GetClientId()}))
 	
