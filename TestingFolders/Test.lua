@@ -432,7 +432,7 @@ return (function(ria)
 			table.insert(taskfunctions, {
 				Text = 'Writing vape/Profiles/'..v,
 				Function = function()
-					local contents = httprequest({Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/'..(if arceus and 'arceusxmoment' or 'Profiles')..'/'..v}).Body
+					local contents = httprequest({Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/'..(arceus and 'arceusxmoment' or 'Profiles')..'/'..v}).Body
 					if v:find('vapeprofiles') and isfile('vape/Profiles/'..v) then 
 						local onlinedata = httpService:JSONDecode(contents)
 						local localdata = httpService:JSONDecode(readfile('vape/Profiles/'..v))
