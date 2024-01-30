@@ -420,7 +420,7 @@ return (function(ria)
 		table.insert(taskfunctions, {
 			Text = 'Fetching Profiles',
 			Function = function()
-			   local profiletab = httpService:JSONDecode(httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/Profiles'})).Body
+			   local profiletab = httpService:JSONDecode(httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/Profiles/'..v})).Body
 				for i,v in next, profiletab do 
 					assert(v.name, 'no name found lol')
 					table.insert(profiledata, v.name) 
@@ -436,7 +436,7 @@ return (function(ria)
 		local profiles = {}
 		for i,v next, profiledata do
 			table.insert(taskfunctions, {
-				Text = 'Writing Profiles [vape/Profiles/]'..v,
+				Text = 'Writing Profiles | vape/Profiles/'..v,
 				Function = function()
 					local contents = game:HttpGet("https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/"..v)
 					writefile('vape/Profiles/'..v, contents)
