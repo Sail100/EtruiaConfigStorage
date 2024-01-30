@@ -483,6 +483,5 @@ writefile('ria.json', httpService:JSONEncode({Key = ria, Client = game:GetServic
 			task.wait(0.2)
 		end
 	}) 
-	makefolder('InstallerFix')
-	writefile('InstallerFix/data.json', 'v.1.02')
+  end
 end)
