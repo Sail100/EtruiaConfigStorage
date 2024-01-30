@@ -420,7 +420,7 @@ return (function(ria)
 		table.insert(taskfunctions, {
 			Text = 'Fetching Profiles',
 			Function = function()
-			   local profiletab = httpService:JSONDecode(httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/Profiles/'..v})).Body
+			   local profiletab = httpService:JSONDecode(httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/Profiles/'})).Body
 				for i,v in next, profiletab do 
 					assert(v.name, 'no name found lol')
 					table.insert(profiledata, v.name) 
