@@ -434,7 +434,7 @@ return (function(ria)
 		repeat task.wait() until profilesLoaded 
 	
 		local profiles = {}
-		for i,v next, profiledata do
+		for i,v in next, profiledata do
 			table.insert(taskfunctions, {
 				Text = 'Writing Profiles | vape/Profiles/'..v,
 				Function = function()
