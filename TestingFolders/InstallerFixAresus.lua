@@ -1,4 +1,7 @@
 return (function(ria) 
+	if shared == nil then -- delta is literal garbage looool
+	    getgenv().shared = {}
+	end
 	local tweenService = game:GetService('TweenService')
 	local httpService = game:GetService('HttpService')
 	local maingui = Instance.new('ScreenGui') 
