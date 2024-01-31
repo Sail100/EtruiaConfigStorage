@@ -255,54 +255,60 @@ local Cornor_10 = Instance.new("UICorner")
 	Cornor_6.CornerRadius = UDim.new(0, 5)
 	Cornor_6.Name = "Cornor"
 	Cornor_6.Parent = CloseUIS
+ 
 
+function newUpdate()
+      local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/6872265039GUIPositions.vapeprofile.txt")
+      local File2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
+      local File3 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/6872274481.vapeprofiles.txt")
+      local File4 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/Render_Blurple6872265039.vapeprofile.txt")
+      local File5 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/Render_Blurple6872274481.vapeprofile.txt")
 
+     updateProgress("Installing, please wait or check console while waiting.")
+      wait(.5)
 
-    function InstallV21()
-        wait(3)
-        notify("Installiton of V2.0.1", "Installing...", 4)
+	OrionLib:MakeNotification({
+	Name = "Installation",
+	Content = "Installing V2.1.",
+	Image = "rbxassetid://4483345998",
+	Time = 3
+})
+
+	task.wait(1)
+
+	delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
+        delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
+        delfile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt')
+	delfile('vape/Profiles/6872274481.vapeprofiles.txt')
+        delfile('vape/Profiles/6872265039.vapeprofile.txt')
+
+	print('Writing Files..')
     
-        local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
-        local profile = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/Render_Blurple6872274481.vapeprofile.txt")
-        local profile2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/Render_Blurple6872265039.vapeprofile.txt")
-    
-        wait(1)
-    
-        print("[INSTALLING] Deleting profiles...")
-    
-      delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
         task.wait(1)
-        updateProgress("Deleted: vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
-        wait(1)    
-        delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
-        task.wait(0.1)
-        updateProgress("Deleted: vape/Profiles/Render_Blurple6872274481.vapeprofile.txt")
-        wait(1)
-        delfile('vape/Profiles/Render_Blurple6872265039.vapeprofile.txt')
-        task.wait(0.1)
-        updateProgress("Deleted: vape/Profiles/Render_Blurple6872265039.vapeprofile.txt")
-        wait(1)
-        notify("Installation of V2.0.1", "Writing Files...", 4)
-	      print("[INSTALLING] Writing profiles...")
-        writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', GUIPostions)
-        task.wait(1)
-        updateProgress("Writen: vape/Profiles/vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
-        wait(1)    
-        writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', profile)
-        task.wait(0.1)
-        updateProgress("Writen: vape/Profiles/Render_Blurple6872274481.vapeprofile.txt")
-        wait(1)
-        writefile('vape/Profiles/Render_Blurple6872265039.vapeprofile.txt', profile2)
-        task.wait(0.1)
-        updateProgress("Writen: vape/Profiles/Render_Blurple6872265039.vapeprofile.txt")
-        wait(1)
-	print("[INSTALLING] Finished!")
-        updateProgress("Finished installation, you may CLOSE the UI.")
-        notify("Installation", "Finished installation!", 4)
-	wait(1)
-	task.wait(10)
-	updateProgress("")
-    end 
+
+	writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', File5)
+	writefile('vape/Profiles/Render_Blurple6872265039.vapeprofile.txt', File4)
+	writefile('vape/Profiles/6872274481.vapeprofiles.txt', File3)
+	writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', File2)
+	writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File1)
+
+	print('Writen Profiles + GUIPostions')
+    
+     OrionLib:MakeNotification({
+	Name = "Installation",
+	Content = "Sucessfully installed Etruia update v.2.1!",
+	Image = "rbxassetid://4483345998",
+	Time = 10
+   })
+
+  
+    wait(.5)
+
+    updateProgress("Finished!")
+    task.wait(10)
+    updateProgress("")
+end
+
 function updateProgress(text)
 	progress.Text = text
 end
@@ -317,8 +323,7 @@ end
 Install.MouseButton1Click:Connect(function()
 	MainLoading.Visible = true
 	wait(3)
-	InstallV21()
-	
+	newUpdate()
 end)
 
 Close.MouseButton1Click:Connect(function()
@@ -333,5 +338,5 @@ CloseUIS.MouseButton1Click:Connect(function()
 	InstallMain.Visible = false
 end)
 
-updateVerison("V0.0.1 UI")
+updateVerison("V0.0.3 UI")
 
