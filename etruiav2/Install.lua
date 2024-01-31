@@ -52,11 +52,6 @@ function section(sectionname, tab, text)
 end
 
 
-local function install()
-
-	
-    
-end
 
 function installv1()
     local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/guiPos.txt")
@@ -75,7 +70,7 @@ function installv1()
 	Content = "Deleted old profiles.",
 	Image = "rbxassetid://4483345998",
 	Time = 7
-})
+   })
  
     
     print('Writing Files..')
@@ -84,7 +79,7 @@ function installv1()
     
     writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', profile)
     print('Writen Profile')
-   wait(.5)
+    wait(.5)
     writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', GUIPostions)
     wait(.5)
     print('Writing Profiles + GUIPostions')
@@ -98,7 +93,7 @@ function installv1()
 	Content = "Sucessfully installed Etruia!",
 	Image = "rbxassetid://4483345998",
 	Time = 10
-})
+  })
 
   
     wait(.5)
@@ -107,7 +102,7 @@ end
 
 
 local function installv2()
-       local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
+    local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
     local profile = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/Render_Blurple6872274481.vapeprofile.txt")
     local profile2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/EtruiaV2Updatev2.0.1/Render_Blurple6872265039.vapeprofile.txt")
     
@@ -120,23 +115,23 @@ local function installv2()
 	Content = "Installing V2.0.1...",
 	Image = "rbxassetid://4483345998",
 	Time = 3
-})
+    })
 
-task.wait(1)
+        task.wait(1)
     
-    print('Installing..')
+        print('Installing..')
 	delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
         delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
 
 	
-	    wait(.5)
+	wait(.5)
    
-    OrionLib:MakeNotification({
+      OrionLib:MakeNotification({
 	Name = "Installation",
 	Content = "Deleted old profiles.",
 	Image = "rbxassetid://4483345998",
 	Time = 7
-})
+    })
  
     
     print('Writing Files..')
@@ -145,7 +140,7 @@ task.wait(1)
     
     writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', profile)
     print('Writen Profile')
-   wait(.5)
+    wait(.5)
     writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', GUIPostions)
     wait(.5)
     writefile('vape/Profiles/Render_Blurple6872265039.vapeprofile.txt', profile2)
@@ -161,9 +156,54 @@ task.wait(1)
   
     wait(.5)
     
+
+end
+
+function newUpdate()
+      local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/6872265039GUIPositions.vapeprofile.txt")
+      local File2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
+      local File3 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/6872274481.vapeprofiles.txt")
+      local File4 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/Render_Blurple6872265039.vapeprofile.txt")
+      local File5 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/Render_Blurple6872274481.vapeprofile.txt")
+
+     wait(.5)
+
+	OrionLib:MakeNotification({
+	Name = "Installation",
+	Content = "Installing V2.1.",
+	Image = "rbxassetid://4483345998",
+	Time = 3
+})
+
+	task.wait(1)
+
+	delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
+        delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
+        delfile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt')
+	delfile('vape/Profiles/6872274481.vapeprofiles.txt')
+        delfile('vape/Profiles/6872265039.vapeprofile.txt)
+
+	print('Writing Files..')
     
+        task.wait(1)
 
+	writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', File5)
+	writefile('vape/Profiles/Render_Blurple6872265039.vapeprofile.txt', File4)
+	writefile('vape/Profiles/6872274481.vapeprofiles.txt', File3)
+	writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', File2)
+	writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File1)
 
+	print('Writen Profiles + GUIPostions')
+    
+     OrionLib:MakeNotification({
+	Name = "Installation",
+	Content = "Sucessfully installed Etruia update v.2.1!",
+	Image = "rbxassetid://4483345998",
+	Time = 10
+   })
+
+  
+    wait(.5)
 end
 
 
@@ -230,6 +270,18 @@ ETab:AddButton({
 })
 
 local ETabS = ETab:AddSection({
+	Name = "Installation of update v2.1"
+})
+
+ETab:AddButton({
+	Name = "Install V2.1",
+	Callback = function()
+      	print("button pressed")
+                       newUpdate()
+  	end    
+})
+
+local ETabS = ETab:AddSection({
 	Name = "Installation of update [UNKNOWN]"
 })
 
@@ -259,27 +311,26 @@ UTab:AddButton({
     
     wait(3)
    
-OrionLib:MakeNotification({
+  OrionLib:MakeNotification({
 	Name = "Installation",
 	Content = "Deleted old profiles.",
 	Image = "rbxassetid://4483345998",
 	Time = 7
-})
+  })
     print('Writing Files..')
-    
     writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', profile)
     print('Writen Profile')
-   wait(.5)
+    wait(.5)
     writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', GUIPostions)
     wait(.5)
     print('Writen Profiles + GUIPostions')
     
-    OrionLib:MakeNotification({
+     OrionLib:MakeNotification({
 	Name = "Installation",
 	Content = "Successfully uninstalled Etruia!",
 	Image = "rbxassetid://4483345998",
 	Time = 10
-})
+    })
     
     wait(.5)
    
@@ -300,5 +351,6 @@ section("UUTabUpd2", UUTab, "1-17-24 | - Added V2 Installion")
 section("UUTabUpd3", UUTab, "1-18-24 | - Added V2.0.1 Installation")
 section("UUTabUpd4", UUTab, "1/19/24 | - Added Tabs [ Main Tab, Tutorial Tab, and Updates Tab. ] ")
 section("UUTabUpd5", UUTab, "1/19/24 | - Updated Installer ")
+section("UUTabUpd6", UUTab, "1/30/24 | - Updated Profiles, Fixed Github formatting, removed some useless code.")
+section("UUTabUpd7", UUTab, "1/130/24 | - Updated Test Installer")	
 UUTab:AddLabel("More updates coming soon!")
-OrionLib:Init()
