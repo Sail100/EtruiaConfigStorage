@@ -181,7 +181,7 @@ function newUpdate()
         delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
         delfile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt')
 	delfile('vape/Profiles/6872274481.vapeprofiles.txt')
-        delfile('vape/Profiles/6872265039.vapeprofile.txt')
+      --  delfile('vape/Profiles/6872265039.vapeprofile.txt')
 
 	print('Writing Files..')
     
