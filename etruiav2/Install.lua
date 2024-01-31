@@ -177,10 +177,10 @@ function newUpdate()
 
 	task.wait(1)
 
-	delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
-        delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
-        delfile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt')
-	delfile('vape/Profiles/6872274481.vapeprofiles.txt')
+	--delfile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt')
+       -- delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
+      --  delfile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt')
+	--delfile('vape/Profiles/6872274481.vapeprofiles.txt')
       --  delfile('vape/Profiles/6872265039.vapeprofile.txt')
 
 	print('Writing Files..')
