@@ -181,7 +181,7 @@ function newUpdate()
         delfile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt')
         delfile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt')
 	delfile('vape/Profiles/6872274481.vapeprofiles.txt')
-        delfile('vape/Profiles/6872265039.vapeprofile.txt)
+        delfile('vape/Profiles/6872265039.vapeprofile.txt')
 
 	print('Writing Files..')
     
@@ -289,7 +289,7 @@ local ETabS = ETab:AddSection({
 UTab:AddButton({
 	Name = "Remove V2",
 	Callback = function()
-      		print("button pressed")
+    print("button pressed")
     local GUIPostions = game:HttpGet("https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
     local profile = game:HttpGet("https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Profiles/Render_Blurple6872265039.vapeprofile.txt")
    
