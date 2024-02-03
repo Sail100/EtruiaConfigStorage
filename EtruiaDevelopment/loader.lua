@@ -74,11 +74,11 @@ function InstallProfiles()
     local File4 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/Render_Blurple6872265039.vapeprofile.txt")
     local File5 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/Render_Blurple6872274481.vapeprofile.txt")
 
-    writefile('6872265039GUIPositions.vapeprofile.txt', File1)
-    writefile('6872265039Render_BlurpleGUIPositions.vapeprofile.txt', File2)
-    writefile('6872274481.vapeprofiles.txt', File3)
-    writefile('Render_Blurple6872265039.vapeprofile.txt', File4)
-    writefile('Render_Blurple6872274481.vapeprofile.txt', File5)
+    writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File1)
+    writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', File2)
+    writefile('vape/Profiles/6872274481.vapeprofiles.txt', File3)
+    writefile('vape/Profiles/Render_Blurple6872265039.vapeprofile.txt', File4)
+    writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', File5)
 end
 
 
