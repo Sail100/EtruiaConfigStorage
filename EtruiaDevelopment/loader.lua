@@ -56,7 +56,7 @@ testExecutor()
 
 
 function ResetProfiles()
-    if not isfile('vape/Profiles') then
+    if not isfolder('vape/Profiles') then
         makefolder('vape/Profiles')
     else
         print("Render Profiles already installed.")
