@@ -2,15 +2,21 @@
 -- Currently, BETA Loader
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Etruia Unstallation", HidePremium = false, IntroText = "Etruia installation UI is loading.."})
+local Window = OrionLib:MakeWindow({Name = "Etruia Installation", HidePremium = false, IntroText = "Etruia installion UI is loading.."})
 local lplr = game.Players.LocalPlayer
 local arceus = false
-
-
+local tweenService = game:GetService('TweenService')
+local httpService = game:GetService('HttpService')
+local old = false
+local executor = (identifyexecutor or getexecutorname or function() return 'your executor' end)()
+local httprequest = (http and http.request or http_request or fluxus and fluxus.request or request or function() end)
 local isfile = isfile or function(file)
     local success, filecontents = pcall(function() return readfile(file) end)
     return success and type(filecontents) == 'string'
 end 
+if shared == nil then -- delta is literal garbage looool
+    getgenv().shared = {}
+end
 
 
   
@@ -64,6 +70,51 @@ function ResetProfiles()
         wait(.1)
         makefolder('vape/Profiles')
     end
+end
+
+function testInstaller()
+    ResetProfiles()
+    wait(.1)
+    notify("Test Uninstaller", "Attempting to fetch profiles. (If there isn't any notification soon after this, reinstall render)")
+    local pd = {}
+    local profilesReset
+    local profiles = httpService:JSONDecode(httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/'..(old and 'arceusxmoment' or 'Profiles')}).Body)
+	for i,v in next, profiletab do 
+        assert(v.name, 'no name found lol')
+        table.insert(profiledata, v.name) 
+    end
+    profilesReset = true
+    task.wait(0.5)
+    notify("Test Uninstaller", "Fetched.")
+
+	repeat task.wait() until profilesReset 
+	
+    notify("Test Uninstaller", "Attempting to install profiles (If there isn't any notification soon after this, reinstall render).")
+    local p = {}
+    for i,v in next, pd do
+        local contents = httprequest({Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/'..(old and 'arceusxmoment' or 'Profiles')..'/'..v}).Body
+        if v:find('vapeprofiles') then
+            if v:find('vapeprofiles') and isfile('vape/Profiles/'..v) then 
+                local onlinedata = httpService:JSONDecode(contents)
+                local localdata = httpService:JSONDecode(readfile('vape/Profiles/'..v))
+                local default = true
+                for i2, v2 in next, onlinedata do 
+                    if localdata[i2] == nil or v2.Selected then 
+                        if not default then 
+                            default = (v2.Selected ~= true) 
+                        end
+                        localdata[i2] = {Selected = v2.Selected or localdata[i2].Selected, Keybind = v2.Keybind == '' and localdata[i2].Keybind or v2.Keybind}
+                    end
+                end
+                localdata.default = (localdata.default or {Selected = default, Keybind = ''})
+                localdata.default.Selected = default
+                writefile('vape/Profiles/'..v, httpService:JSONEncode(localdata)) 
+            else
+                writefile('vape/Profiles/' ..v, contents)
+        end
+    end
+    notify("Test Uninstaller", "Sucessfully uninstalled. Check if Etruia was uninstalled.")
+	
 end
 
 
