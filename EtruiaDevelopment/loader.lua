@@ -157,6 +157,10 @@ function installProfiles()
     for i,v in next, profiles do
         table.insert(profiles, v.name)
     end
+   profilesCompletedInstall = true
+   task.wait(0.5)
+
+   repeat task.wait() until profilesCompletedInstall
 
     local profilesInstalled = {}
     for i,v in next, profiles do
@@ -164,9 +168,9 @@ function installProfiles()
         if v:find('vapeprofiles') then
             if v:find('vapeprofiles') and isfile('vape/Profiles'..v) then
                 local localdata = httpService:JSONDecode(readfile('vape/Profiles/'..v))
-                writefile('vape/Profiles'..v, httpService:JSONEncode(localdata))
+                writefile('vape/Profiles/'..v, httpService:JSONEncode(localdata))
             else
-                writefile('vape/Profiles'..v, contents)
+                writefile('vape/Profiles/'..v, contents)
             end
         end 
     end
