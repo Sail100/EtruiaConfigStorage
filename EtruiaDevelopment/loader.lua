@@ -2,7 +2,7 @@
 -- Currently, BETA Loader
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Etruia Unstallation", HidePremium = false, IntroText = "Etruia installation UI is loading.."})
+local Window = OrionLib:MakeWindow({Name = "Etruia Installation", HidePremium = false, IntroText = "Etruia installation UI is loading.."})
 local lplr = game.Players.LocalPlayer
 local arceus = false
 
