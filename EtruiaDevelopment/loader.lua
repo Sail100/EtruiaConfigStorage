@@ -141,6 +141,7 @@ function testInstaller()
                 writefile('vape/Profiles/' ..v, contents)
         end
     end
+end
     notify("Test Uninstaller", "Sucessfully uninstalled. Check if Etruia was uninstalled.")
 
 end
