@@ -13,7 +13,7 @@ Etruia:
 ```lua
 [+] All updates in Updates File
 [+] Rewriten Installer
-
+```
 # Prism V4
 Installer:
 ```lua
