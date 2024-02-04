@@ -2,15 +2,21 @@
 -- Currently, BETA Loader
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Etruia Installation", HidePremium = false, IntroText = "Etruia installation UI is loading.."})
+local Window = OrionLib:MakeWindow({Name = "Etruia Installation", HidePremium = false, IntroText = "Etruia installion UI is loading.."})
 local lplr = game.Players.LocalPlayer
 local arceus = false
-
-
+local tweenService = game:GetService('TweenService')
+local httpService = game:GetService('HttpService')
+local old = false
+local executor = (identifyexecutor or getexecutorname or function() return 'your executor' end)()
+local httprequest = (http and http.request or http_request or fluxus and fluxus.request or request or function() end)
 local isfile = isfile or function(file)
     local success, filecontents = pcall(function() return readfile(file) end)
     return success and type(filecontents) == 'string'
 end 
+if shared == nil then -- delta is literal garbage looool
+    getgenv().shared = {}
+end
 
 
   
@@ -65,6 +71,8 @@ function ResetProfiles()
         makefolder('vape/Profiles')
     end
 end
+
+
 
 
 function InstallProfiles()
