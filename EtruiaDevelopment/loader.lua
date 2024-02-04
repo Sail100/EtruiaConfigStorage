@@ -100,7 +100,7 @@ function install() -- Installs ETRUIA v2.1
     notify("Installer", "Sucessfully installed Etruia.")
 end
 
-function testInstaller()
+--[[function testInstaller()
     ResetProfiles()
     wait(.1)
     notify("Test Uninstaller", "Attempting to fetch profiles. (If there isn't any notification soon after this, reinstall render)")
@@ -141,7 +141,7 @@ function testInstaller()
                 writefile('vape/Profiles/' ..v, contents)
     end
     notify("Test Uninstaller", "Sucessfully uninstalled. Check if Etruia was uninstalled.")
-end
+end--]]
 
 function uninstall() -- Installs ETRUIA v2.1
    lplr:Kick("No uninstall method yet. Reinstall Render.")
@@ -207,7 +207,7 @@ function CreateUI()
     UTab:AddButton({
     	Name = "Remove Etruia",
 	    Callback = function()
-            testInstaller()
+            uninstall()
   	    end    
     })
 
