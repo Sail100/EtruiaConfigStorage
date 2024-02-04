@@ -60,6 +60,10 @@ end
 
 testExecutor()
 
+if executor == 'Delta' then 
+			pcall(function() lplr:Kick("Etruia's Installer isn't supported with: ' ..exexecutor.. ' check back later.')
+		return
+end
 
 function ResetProfiles()
     if not isfolder('vape/Profiles') then
