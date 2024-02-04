@@ -208,7 +208,7 @@ function CreateUI()
     UTab:AddButton({
     	Name = "Remove Etruia",
 	    Callback = function()
-           uninstall()
+           testInstaller()
   	    end    
     })
 
