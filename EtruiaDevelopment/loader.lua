@@ -147,27 +147,27 @@ end
     notify("Test Uninstaller", "Sucessfully uninstalled. Check if Etruia was uninstalled.")
 end--]]
 
-
 function installProfiles()
-	local profiles = {}
-	local profilesCompletedInstall 
-	local profiles = httpService:JSONDecode(httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/'..(old and 'arceusxmoment' or 'Profiles')}).Body)
-	for i,v in next, profiles do
-		assert(v.name, "No name found.")
-		table.insert(profiles, v.name)
-	end
+    local profiles = {}
+    local profilesCompletedInstall 
+    local profiles = httpService:JSONDecode(httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/'..(old and 'arceusxmoment' or 'Profiles')}).Body)
+    for i,v in next, profiles do
+        assert(v.name, "No name found.")
+        table.insert(profiles, v.name)
+    end
 
-	local profilesInstalled = {}
-	for i,v in profiles do
-		local contents = httprequest({Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/'..(old and 'arceusxmoment' or 'Profiles')..'/'..v}).Body
-		if v:find('vapeprofiles') then
-			if v:find('vapeprofiles') and isfile('vape/Profiles'..v) then
-				local localdata = httpService:JSONDecode(readfile('vape/Profiles/'..v))
-				writefile('vape/Profiles'..v, httpService:JSONEncode(localdata))
-			else
-				writefile('vape/Profiles'..v, contents)
-			end
-		end
+    local profilesInstalled = {}
+    for i,v in next, profiles do
+        local contents = httprequest({Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/'..(old and 'arceusxmoment' or 'Profiles')..'/'..v}).Body
+        if v:find('vapeprofiles') then
+            if v:find('vapeprofiles') and isfile('vape/Profiles'..v) then
+                local localdata = httpService:JSONDecode(readfile('vape/Profiles/'..v))
+                writefile('vape/Profiles'..v, httpService:JSONEncode(localdata))
+            else
+                writefile('vape/Profiles'..v, contents)
+            end
+        end 
+    end
 end
 
 function testUnistallModule()
