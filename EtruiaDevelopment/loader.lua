@@ -61,8 +61,8 @@ end
 testExecutor()
 
 if executor == 'Delta' then 
-			pcall(function() lplr:Kick("Etruia's Installer isn't supported with: ' ..exexecutor.. ' check back later.')
-		return
+		pcall(function() lplr:Kick("Etruia's Installer isn't supported with: " ..exexecutor.. " check back later.") end)
+	return
 end
 
 function ResetProfiles()
