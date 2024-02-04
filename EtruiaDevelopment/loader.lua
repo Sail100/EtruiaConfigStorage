@@ -19,6 +19,9 @@ if shared == nil then -- delta is literal garbage looool
 end
 
 
+if not isfolder('vape') then
+	lplr:Kick("nn you dont have render installed you nn")
+end
   
 function notify(name, text)
   OrionLib:MakeNotification({
@@ -152,7 +155,6 @@ function installProfiles()
     local profilesCompletedInstall 
     local profiles = httpService:JSONDecode(httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/'..(old and 'arceusxmoment' or 'Profiles')}).Body)
     for i,v in next, profiles do
-        assert(v.name, "No name found.")
         table.insert(profiles, v.name)
     end
 
