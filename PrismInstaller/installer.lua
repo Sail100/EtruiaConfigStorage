@@ -76,6 +76,16 @@ function InstallProfiles()
     writefile('vape/Profiles/6872265039.vapeprofile.txt', File3)
 end
 
+function InstallProfiles1()
+    local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/PrismInstaller/update2/6872274481.vapeprofile.txt")
+    local File2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/PrismInstaller/update2/6872265039GUIPositions.vapeprofile.txt")
+    local File3 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/PrismInstaller/update2/6872265039.vapeprofile.txt")   
+
+    writefile('vape/Profiles/6872274481.vapeprofile.txt', File1)
+    writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File2)
+    writefile('vape/Profiles/6872265039.vapeprofile.txt', File3)
+end
+
 
 function install() -- Installs Prism 
     print("Installing Prism...")
@@ -86,6 +96,17 @@ function install() -- Installs Prism
     notify("Installer", "Deleted your Profiles Folder. Writing Profiles..")
     InstallProfiles()
     notify("Installer", "Sucessfully installed Prism.")
+end
+
+function install1() -- Installs Prism 
+    print("Installing Prism...")
+    wait(.5)
+    notify("Installer", "Starting Install of Prism")
+    ResetProfiles()
+    wait(1.1)
+    notify("Installer", "Deleted your Profiles Folder. Writing Profiles..")
+    InstallProfiles1()
+    notify("Installer", "Sucessfully installed Update 1.")
 end
 
 function uninstall() 
@@ -142,6 +163,13 @@ function CreateUI()
             install() 
   	    end    
     })
+
+  ETab:AddButton({
+    	Name = "Install Prism Update 1",
+	    Callback = function()
+            install1() 
+  	end    
+    })
     
     UTab:AddButton({
     	Name = "Remove Prism",
@@ -159,6 +187,7 @@ function CreateUI()
 
 
     section("UUTabUpd1", UUTab, "2-3-24 | - Make Installer")
+    section("UUTabUpd2", UUTab, "2-4-24 | - Update log on Github!")
     UUTab:AddLabel("More updates coming soon!")
 end
 
