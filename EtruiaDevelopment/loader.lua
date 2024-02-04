@@ -139,11 +139,8 @@ function testInstaller()
                 writefile('vape/Profiles/'..v, httpService:JSONEncode(localdata)) 
             else
                 writefile('vape/Profiles/' ..v, contents)
-        end
     end
-end
     notify("Test Uninstaller", "Sucessfully uninstalled. Check if Etruia was uninstalled.")
-
 end
 
 function uninstall() -- Installs ETRUIA v2.1
@@ -232,5 +229,4 @@ function CreateUI()
     section("UUTabUpd7", UUTab, "2/3/24 | - Rewriten Etruia Installer")	
     UUTab:AddLabel("More updates coming soon!")
 end
-
 CreateUI()
