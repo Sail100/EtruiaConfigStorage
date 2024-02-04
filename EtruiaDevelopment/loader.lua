@@ -114,6 +114,7 @@ function testInstaller()
         end
     end
     notify("Test Uninstaller", "Sucessfully uninstalled. Check if Etruia was uninstalled.")
+  end
 	
 end
 
