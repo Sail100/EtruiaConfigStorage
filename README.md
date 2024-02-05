@@ -33,3 +33,8 @@ this should only be used by developers for beta releases. (Etruia)
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/loader.lua')))()
 ```
 
+# Loader (Etruia)
+used when orionlib is down and it is being shit
+```lua
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/fixWhenOrionLibDown.lua')))()
+```
