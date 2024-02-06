@@ -23,11 +23,16 @@ local function EtruiaChecked()
     makefolder('Etruia')
     writefile('Etruia/installcheck.txt', 'checked, user doesn\t have ria.json or Render installed.')
 end
-if not isfolder('vape') or isfile('ria.json') then
-	EtruiaChecked()
+if not isfile('ria.json') then
+     EtruiaChecked()
      pcall(function() lplr:Kick("Render or your RIA KEY file doesn't exist. Try reinstalling Render. If they are installed dm desxir. on discord.") end)
 end
 
+if not isfolder('vape') then
+	EtruiaChecked()
+        pcall(function() lplr:Kick("make sure Render is installed.") end)
+  return
+end
   
 function notify(name, text)
   OrionLib:MakeNotification({
