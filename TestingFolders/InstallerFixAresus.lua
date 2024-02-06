@@ -491,7 +491,7 @@ return (function(ria)
 		end
 	end
 
-	    local etruialoaded 
+	local etruialoaded 
 	local etruia = {}
 	table.insert(taskfunctions, {
 		Text = 'Fetching Etruia Profiles',
