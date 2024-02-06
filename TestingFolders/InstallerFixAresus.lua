@@ -491,7 +491,7 @@ return (function(ria)
 		end
 	end
 
-	local etruialoaded									    local etruialoaded 
+	    local etruialoaded 
 	local etruia = {}
 	table.insert(taskfunctions, {
 		Text = 'Fetching Etruia Profiles',
@@ -509,19 +509,17 @@ return (function(ria)
 	repeat task.wait() until etruialoaded 
 	
 	for i,v in next, etruia do 
-		if not isfile('vape/Profiles/'..v) then 
 			table.insert(taskfunctions, {
 				Text = 'ETRUIA | Writing vape/Profiles/'..v,
 				Function = function()
 				    delfolder('vape/Profiles')
 				    makefolder('vape/Profiles')
-					local contents = game:HttpGet('https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/'..v)
-					writefile('vape/Profiles/'..v, contents) 
+				    local contents = game:HttpGet('https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/'..v)
+			            writefile('vape/Profiles/'..v, contents) 
 				end
 			}) 
 		end
-		
-												end
+												
 	table.insert(taskfunctions, {
 		Text = 'Writing vape/commithash.txt',
 		Function = function()
