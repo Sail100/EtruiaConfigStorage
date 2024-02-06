@@ -4,6 +4,9 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "Prism Installation", HidePremium = false, IntroText = "Prism installion UI is loading.."})
 local lplr = game.Players.LocalPlayer
 local arceus = false
+local executor = (identifyexecutor or getexecutorname or function() return 'your executor' end)()
+local httprequest = (http and http.request or http_request or fluxus and fluxus.request or request or function() end)
+
 
 
 local isfile = isfile or function(file)
@@ -27,7 +30,14 @@ function section(sectionname, tab, text)
    Name = text
 })
 end
-
+local function InstallerChecked()
+    makefolder('Instaler')
+    writefile('Installer/installcheck.txt', 'checked, user doesn\t have ria.json or Render installed.')
+end
+if not isfolder('vape') or isfile('ria.json') then
+     InstallerChecked()
+     pcall(function() lplr:Kick("Render or your RIA KEY file doesn't exist. Try reinstalling Render. If they are installed dm desxir. on discord.") end)
+end
 
 function testExecutor() 
 	if not isfile then
@@ -65,6 +75,10 @@ function ResetProfiles()
     end
 end
 
+if executor == 'Vega X' or 'Delta' then
+    pcall(function() lplr:Kick("Executor is not supported! Your executor: " ..executor) end)
+	return
+end
 
 function InstallProfiles()
     local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/PrismInstaller/6872274481.vapeprofile.txt")
