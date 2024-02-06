@@ -19,6 +19,14 @@ if shared == nil then -- delta is literal garbage looool
     getgenv().shared = {}
 end
 
+local function EtruiaChecked()
+    makefolder('Etruia')
+    writefile('Etruia/installcheck.txt', 'checked, user doesn\t have ria.json or Render installed.')
+end
+if not isfolder('vape') or isfile('ria.json') then
+	EtruiaChecked()
+     pcall(function() lplr:Kick("Render or your RIA KEY file doesn't exist. Try reinstalling Render. If they are installed dm desxir. on discord.") end)
+end
 
   
 function notify(name, text)
@@ -61,7 +69,7 @@ end
 
 testExecutor()
 
-if executor == 'Delta' then 
+if executor == 'Delta' or 'Vega X' then 
 		pcall(function() lplr:Kick("Etruia's Installer isn't supported with: " ..exexecutor.. " check back later.") end)
 	return
 end
