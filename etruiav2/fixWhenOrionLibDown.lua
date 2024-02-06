@@ -1,3 +1,12 @@
+local isfile = isfile or function(file)
+    local success, filecontents = pcall(function() return readfile(file) end)
+    return success and type(filecontents) == 'string'
+end 
+if shared == nil then -- delta is literal garbage looool
+    getgenv().shared = {}
+end
+
+
 function ResetProfiles()
     if not isfolder('vape/Profiles') then
         makefolder('vape/Profiles')
@@ -25,8 +34,10 @@ function InstallProfiles()
     writefile('vape/Profiles/6872274481.vapeprofiles.txt', File3)
     writefile('vape/Profiles/Render_Blurple6872265039.vapeprofile.txt', File4)
     writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', File5)
+    task.wait(3)
+    writefile('done.txt', 'finished ( used to load vape) ')
 end
 
-installProfiles()
-wait(1)
+InstallProfiles()
+repeat task.wait() until isfile('done.txt')
 loadfile('vape/NewMainScript.lua')();
