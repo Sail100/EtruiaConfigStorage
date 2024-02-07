@@ -89,24 +89,26 @@ end
 
 
 function InstallProfiles()
-    local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/6872265039GUIPositions.vapeprofile.txt")
-    local File2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
-    local File3 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/6872274481.vapeprofiles.txt")
-    local File4 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/Render_Blurple6872265039.vapeprofile.txt")
-    local File5 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/Render_Blurple6872274481.vapeprofile.txt")
-
-    writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File1)
-    writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', File2)
+    local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/Render_Blurple6872274481.vapeprofile.txt")
+    local File2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/Render_Blurple6872265039.vapeprofile.txt")
+    local File3 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/6872274481.vapeprofiles.txt")
+    local File4 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
+    local File5 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/6872265039GUIPositions.vapeprofile.txt")
+    local File6 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/6872265039.vapeprofile.txt")
+	
+    writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', File1)
+    writefile('vape/Profiles/Render_Blurple6872265039.vapeprofile.txt', File2)
     writefile('vape/Profiles/6872274481.vapeprofiles.txt', File3)
-    writefile('vape/Profiles/Render_Blurple6872265039.vapeprofile.txt', File4)
-    writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', File5)
+    writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', File4)
+    writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', Profile5)
+    writefile('6872265039.vapeprofile.txt', File6)
 end
 
 
-function install() -- Installs ETRUIA v2.1
-    print("Installing Etruia V2.1.")
+function install() -- Installs ETRUIA
+    print("Installing Etruia V2.1.1")
     wait(.5)
-    notify("Installer", "Starting Install of Etruia. (v2.1)")
+    notify("Installer", "Starting Install of Etruia. (v2.1.1)")
     ResetProfiles()
     wait(1.1)
     notify("Installer", "Deleted your Profiles Folder. Writing Profiles..")
@@ -114,82 +116,6 @@ function install() -- Installs ETRUIA v2.1
     notify("Installer", "Sucessfully installed Etruia.")
 end
 
---[[function testInstaller()
-    ResetProfiles()
-    wait(.1)
-    notify("Test Uninstaller", "Attempting to fetch profiles. (If there isn't any notification soon after this, reinstall render)")
-    local pd = {}
-    local profilesReset
-    local profiles = httpService:JSONDecode(httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/'..(old and 'arceusxmoment' or 'Profiles')}).Body)
-	for i,v in next, profiletab do 
-        assert(v.name, 'no name found lol')
-        table.insert(profiledata, v.name) 
-    end
-    profilesReset = true
-    task.wait(0.5)
-    notify("Test Uninstaller", "Fetched.")
-
-	repeat task.wait() until profilesReset 
-
-    notify("Test Uninstaller", "Attempting to install profiles (If there isn't any notification soon after this, reinstall render).")
-    local p = {}
-    for i,v in next, pd do
-        local contents = httprequest({Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/'..(old and 'arceusxmoment' or 'Profiles')..'/'..v}).Body
-        if v:find('vapeprofiles') then
-            if v:find('vapeprofiles') and isfile('vape/Profiles/'..v) then 
-                local onlinedata = httpService:JSONDecode(contents)
-                local localdata = httpService:JSONDecode(readfile('vape/Profiles/'..v))
-                local default = true
-                for i2, v2 in next, onlinedata do 
-                    if localdata[i2] == nil or v2.Selected then 
-                        if not default then 
-                            default = (v2.Selected ~= true) 
-                        end
-                        localdata[i2] = {Selected = v2.Selected or localdata[i2].Selected, Keybind = v2.Keybind == '' and localdata[i2].Keybind or v2.Keybind}
-                    end
-                end
-                localdata.default = (localdata.default or {Selected = default, Keybind = ''})
-                localdata.default.Selected = default
-                writefile('vape/Profiles/'..v, httpService:JSONEncode(localdata)) 
-            else
-                writefile('vape/Profiles/' ..v, contents)
-    end
-    notify("Test Uninstaller", "Sucessfully uninstalled. Check if Etruia was uninstalled.")
-end--]]
-
-function installProfiles()
-    local profiles = {}
-    local profilesCompletedInstall 
-    local profiles = httpService:JSONDecode(httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/'..(old and 'arceusxmoment' or 'Profiles')}).Body)
-    for i,v in next, profiles do
-        table.insert(profiles, v.name)
-    end
-   profilesCompletedInstall = true
-   task.wait(0.5)
-
-   repeat task.wait() until profilesCompletedInstall
-
-    local profilesInstalled = {}
-    for i,v in next, profiles do
-        local contents = httprequest({Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/'..(old and 'arceusxmoment' or 'Profiles')..'/'..v}).Body
-        if v:find('vapeprofiles') then
-            if v:find('vapeprofiles') and isfile('vape/Profiles'..v) then
-                local localdata = httpService:JSONDecode(readfile('vape/Profiles/'..v))
-                writefile('vape/Profiles/'..v, httpService:JSONEncode(localdata))
-            else
-                writefile('vape/Profiles/'..v, contents)
-            end
-        end 
-    end
-end
-
-function testUnistallModule()
-	notify("Test uninstaller","Attempting to uninstall Etruia.")
-	task.wait(1)
-	installProfiles()
-	wait(.5)
-	notify("Test uninstaller","Sucessfully uninstalled Etruia")
-end
 
 function uninstall() -- Installs ETRUIA v2.1
    lplr:Kick("No uninstall method yet. Reinstall Render.")
@@ -248,14 +174,14 @@ function CreateUI()
     ETab:AddButton({
     	Name = "Install Etruia",
 	    Callback = function()
-            install() 
+               install()
   	    end    
     })
     
     UTab:AddButton({
     	Name = "Remove Etruia",
 	    Callback = function()
-            testUnistallModule()
+            uninstall()
   	    end    
     })
 
@@ -269,6 +195,7 @@ function CreateUI()
 
     section("UUTabUpd1", UUTab, "1-16-24 | - Created github.")
     section("UUTabUpd2", UUTab, "1-17-24 | - Added V2 Installion")
+    section("UUTabUpd3", UUTab, "2-6-24 | Remake Etruia.")
     section("UUTabUpd3", UUTab, "1-18-24 | - Added V2.0.1 Installation")
     section("UUTabUpd4", UUTab, "1/19/24 | - Added Tabs [ Main Tab, Tutorial Tab, and Updates Tab. ] ")
     section("UUTabUpd5", UUTab, "1/19/24 | - Updated Installer ")
