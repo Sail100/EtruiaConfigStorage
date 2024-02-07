@@ -77,11 +77,12 @@ function InstallProfiles()
     writefile('vape/Profiles/Render_Blurple6872265039.vapeprofile.txt', File2)
     writefile('vape/Profiles/6872274481.vapeprofiles.txt', File3)
     writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', File4)
-    writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', Profile5)
+    writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File5)
     writefile('vape/Profiles/6872265039.vapeprofile.txt', File6)
-
     notify("Install", "Finished!")
 end
+
+
 
 function uninstall()
    lplr:Kick("No uninstall method yet. Reinstall Render.")
