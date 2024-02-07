@@ -93,31 +93,20 @@ end
 
 
 function InstallProfiles()
-    local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/6872265039GUIPositions.vapeprofile.txt")
-    local File2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
-    local File3 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/6872274481.vapeprofiles.txt")
-    local File4 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/Render_Blurple6872265039.vapeprofile.txt")
-    local File5 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/etruiav2/Updatev.2.1/Render_Blurple6872274481.vapeprofile.txt")
-
-    writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File1)
-    writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', File2)
+    local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/Render_Blurple6872274481.vapeprofile.txt")
+    local File2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/Render_Blurple6872265039.vapeprofile.txt")
+    local File3 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/6872274481.vapeprofiles.txt")
+    local File4 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/6872265039Render_BlurpleGUIPositions.vapeprofile.txt")
+    local File5 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/6872265039GUIPositions.vapeprofile.txt")
+    local File6 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/6872265039.vapeprofile.txt")
+	
+    writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', File1)
+    writefile('vape/Profiles/Render_Blurple6872265039.vapeprofile.txt', File2)
     writefile('vape/Profiles/6872274481.vapeprofiles.txt', File3)
-    writefile('vape/Profiles/Render_Blurple6872265039.vapeprofile.txt', File4)
-    writefile('vape/Profiles/Render_Blurple6872274481.vapeprofile.txt', File5)
+    writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', File4)
+    writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', Profile5)
+    writefile('vape/Profiles/6872265039.vapeprofile.txt', File6)
 end
-
-
-function install() -- Installs ETRUIA v2.1
-    print("Installing Etruia V2.1.")
-    wait(.5)
-    notify("Installer", "Starting Install of Etruia. (v2.1)")
-    ResetProfiles()
-    wait(1.1)
-    notify("Installer", "Deleted your Profiles Folder. Writing Profiles..")
-    InstallProfiles()
-    notify("Installer", "Sucessfully installed Etruia.")
-end
-
 
 function uninstall() -- Installs ETRUIA v2.1
    lplr:Kick("No uninstall method yet. Reinstall Render.")
@@ -203,6 +192,7 @@ function CreateUI()
     section("UUTabUpd6", UUTab, "1/30/24 | - Updated Profiles, Fixed Github formatting, removed some useless code.")
     section("UUTabUpd7", UUTab, "1/30/24 | - Updated Test Installer")	
     section("UUTabUpd7", UUTab, "2/3/24 | - Rewriten Etruia Installer")	
+    section("UUTabUpd8", UUTab, "2/26/24 | Remade Etruia.")
     UUTab:AddLabel("More updates coming soon!")
     OrionLib:Init()
 end
