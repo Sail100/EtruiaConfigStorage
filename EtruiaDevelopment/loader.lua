@@ -14,15 +14,7 @@ local isfile = isfile or function(file)
     local success, filecontents = pcall(function() return readfile(file) end)
     return success and type(filecontents) == 'string'
 end 
-if shared == nil then -- delta is literal garbage looool
-    getgenv().shared = {}
-end
-
-
-if not isfolder('vape') then
-	lplr:Kick("nn you dont have render installed you nn")
-end
-  
+ 
 function notify(name, text)
   OrionLib:MakeNotification({
     Name = name,
@@ -37,15 +29,6 @@ function section(sectionname, tab, text)
    Name = text
 })
 end
-local function EtruiaChecked()
-    makefolder('EtruiaDev')
-    writefile('EtruiaDev/installcheck.txt', 'checked, user doesn\t have ria.json or Render installed.')
-end
-if not isfolder('vape') or isfile('ria.json') then
-	EtruiaChecked()
-     pcall(function() lplr:Kick("Render or your RIA KEY file doesn't exist. Try reinstalling Render. If they are installed dm desxir. on discord.") end)
-end
-
 function testExecutor() 
 	if not isfile then
 		lplr:Kick("Executor does not support isfile, use Fluxus or Delta.")
@@ -70,11 +53,6 @@ end
 
 testExecutor()
 
-if executor == 'Delta' or 'Vega X' then 
-		pcall(function() lplr:Kick("Etruia's Installer isn't supported with: " ..exexecutor.. " check back later.") end)
-	return
-end
-
 function ResetProfiles()
     if not isfolder('vape/Profiles') then
         makefolder('vape/Profiles')
@@ -85,8 +63,6 @@ function ResetProfiles()
         makefolder('vape/Profiles')
     end
 end
-
-
 
 function InstallProfiles()
     local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/Render_Blurple6872274481.vapeprofile.txt")
@@ -122,86 +98,80 @@ function uninstall() -- Installs ETRUIA v2.1
 end
 -- UI 
 
-function CreateUI()
-    local MTab = Window:MakeTab({
-    	Name = "Main Tab",
-    	Icon = "rbxassetid://4483345998",
-    	PremiumOnly = false
-    })
-
+local MTab = Window:MakeTab({
+    Name = "Main Tab",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
     
  
 
+section("StatsS01", MTab, "Welcome to Etruia's new Installer.")
+section("StatsS02", MTab, "Here, you install Etruia.")
+section("StatsS03", MTab, "If you need help, look at the Tutorial Tab.")
+section("StatsS", MTab, "Stats:")
+section("StatsS1", MTab, "Username: " ..lplr.Name)
+section("StatsS2", MTab, "ID: " ..lplr.UserId)
+section("StatsS3", MTab, "Game Name: " ..game.Name) 
+section("StatsS4", MTab, "Game ID: "..game.PlaceId)
 
-    section("StatsS01", MTab, "Welcome to Etruia's new Installer.")
-    section("StatsS02", MTab, "Here, you install Etruia.")
-    section("StatsS03", MTab, "If you need help, look at the Tutorial Tab.")
-    section("StatsS", MTab, "Stats:")
-    section("StatsS1", MTab, "Username: " ..lplr.Name)
-    section("StatsS2", MTab, "ID: " ..lplr.UserId)
-    section("StatsS3", MTab, "Game Name: " ..game.Name) 
-    section("StatsS4", MTab, "Game ID: "..game.PlaceId)
-
-    local TTab = Window:MakeTab({
-    	Name = "Tutorial",
-    	Icon = "rbxassetid://4483345998",
-    	PremiumOnly = false
-    })
-
-
-    section("TTabS1", TTab, "**MAKE SURE YOU HAVE RENDER INSTALLED WITH PROFILES**")
-    section("TTabS2", TTab, "To install Etruia, first go into the tab called: 'Install Etruia' ")
-    section("TTabS3", TTab, "After, select the verison you want.")
-    section("TTabS4", TTab, "Wait for it to finish installing and its done. Its that simple.")
+local TTab = Window:MakeTab({
+    Name = "Tutorial",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
 
-    local ETab = Window:MakeTab({
-	    Name = "Install Etruia",
-	    Icon = "rbxassetid://4483345998",
+section("TTabS1", TTab, "**MAKE SURE YOU HAVE RENDER INSTALLED WITH PROFILES**")
+section("TTabS2", TTab, "To install Etruia, first go into the tab called: 'Install Etruia' ")
+section("TTabS3", TTab, "After, select the verison you want.")
+section("TTabS4", TTab, "Wait for it to finish installing and its done. Its that simple.")
+
+local ETab = Window:MakeTab({
+	Name = "Install Etruia",
+	Icon = "rbxassetid://4483345998",
         PremiumOnly = false
-    })
+ })
 
-    local UTab = Window:MakeTab({
-	    Name = "Uninstall Etruia",
-	    Icon = "rbxassetid://4483345998",
-	    PremiumOnly = false
-    })
+local UTab = Window:MakeTab({
+    Name = "Uninstall Etruia",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
 
-    section("Disclaimer", ETab, "Due to the rewrite on 2/3/2024, Etruia's past verisons have been removed.")
-
-    
-    ETab:AddButton({
-    	Name = "Install Etruia",
-	    Callback = function()
-               install()
-  	    end    
-    })
-    
-    UTab:AddButton({
-    	Name = "Remove Etruia",
-	    Callback = function()
-            uninstall()
-  	    end    
-    })
+section("Disclaimer", ETab, "Due to the rewrite on 2/3/2024, Etruia's past verisons have been removed.")
 
     
-    local UUTab = Window:MakeTab({
-    	Name = "Updates",
-	    Icon = "rbxassetid://4483345998",
-	    PremiumOnly = false
-    })
+ETab:AddButton({
+Name = "Install Etruia",
+	 Callback = function()
+          install()
+  	end    
+ })
+    
+UTab:AddButton({
+Name = "Remove Etruia",
+	Callback = function()
+        uninstall()
+  	 end    
+})
+
+    
+local UUTab = Window:MakeTab({
+    Name = "Updates",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+ })
 
 
-    section("UUTabUpd1", UUTab, "1-16-24 | - Created github.")
-    section("UUTabUpd2", UUTab, "1-17-24 | - Added V2 Installion")
-    section("UUTabUpd3", UUTab, "1-18-24 | - Added V2.0.1 Installation")
-    section("UUTabUpd4", UUTab, "1/19/24 | - Added Tabs [ Main Tab, Tutorial Tab, and Updates Tab. ] ")
-    section("UUTabUpd5", UUTab, "1/19/24 | - Updated Installer ")
-    section("UUTabUpd6", UUTab, "1/30/24 | - Updated Profiles, Fixed Github formatting, removed some useless code.")
-    section("UUTabUpd7", UUTab, "1/30/24 | - Updated Test Installer")	
-    section("UUTabUpd8", UUTab, "2/3/24 | - Rewriten Etruia Installer")	
-    section("UUTabUpd9", UUTab, "2-6-24 | Remake Etruia.")
-    UUTab:AddLabel("More updates coming soon!")
-end
-CreateUI()
+section("UUTabUpd1", UUTab, "1-16-24 | - Created github.")
+section("UUTabUpd2", UUTab, "1-17-24 | - Added V2 Installion")
+section("UUTabUpd3", UUTab, "1-18-24 | - Added V2.0.1 Installation")
+section("UUTabUpd4", UUTab, "1/19/24 | - Added Tabs [ Main Tab, Tutorial Tab, and Updates Tab. ] ")
+section("UUTabUpd5", UUTab, "1/19/24 | - Updated Installer ")
+section("UUTabUpd6", UUTab, "1/30/24 | - Updated Profiles, Fixed Github formatting, removed some useless code.")
+section("UUTabUpd7", UUTab, "1/30/24 | - Updated Test Installer")	
+section("UUTabUpd8", UUTab, "2/3/24 | - Rewriten Etruia Installer")	
+section("UUTabUpd9", UUTab, "2-6-24 | Remake Etruia.")
+UUTab:AddLabel("More updates coming soon!")
