@@ -48,7 +48,7 @@ end
 
 testExecutor()
 
-if executor == 'Vega X' or 'Delta' then
+if executor ~= 'Fluxus' then
       lplr:Kick('Your executor: ' ..executor.. ' isnt supported! Use Fluxus.')
 end
 
