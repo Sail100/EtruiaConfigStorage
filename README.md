@@ -11,8 +11,7 @@ Prism V4:
 
 Etruia:
 ```lua
-[+] All updates in Updates File
-[+] Rewriten Installer
+[+] Remade Etruia (old was kinda bad)
 ```
 # Prism V4
 Installer:
