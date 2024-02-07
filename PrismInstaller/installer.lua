@@ -75,10 +75,10 @@ function ResetProfiles()
     end
 end
 
-if executor == 'Vega X' or 'Delta' then
-    pcall(function() lplr:Kick("Executor is not supported! Your executor: " ..executor) end)
-	return
+if executor ~= 'Fluxus' then
+       lplr:Kick('Your executor: ' ..executor.. ' isnt supported! Use Fluxus.')
 end
+
 
 function InstallProfiles()
     local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/PrismInstaller/6872274481.vapeprofile.txt")
