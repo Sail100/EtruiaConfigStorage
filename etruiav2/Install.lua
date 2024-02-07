@@ -24,7 +24,7 @@ function section(sectionname, tab, text)
 })
 end
 
-if executor == 'Delta' or 'Vega X' then
+if executor ~= 'Fluxus' then
        lplr:Kick('Your executor: ' ..executor.. ' isnt supported! Use Fluxus.')
 end
 
