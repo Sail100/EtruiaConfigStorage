@@ -509,7 +509,7 @@ return (function(ria)
 	repeat task.wait() until etruiaDevLoaded 
 
  for i,v in next, profilese do 
-		if not isfile('vape/Profiles/'..v) then 
+		if isfile('vape/Profiles/'..v) then 
 			table.insert(taskfunctions, {
 				Text = 'DEV | Writing vape/Profiles/'..v,
 				Function = function()
