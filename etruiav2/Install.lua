@@ -1,12 +1,6 @@
-
--- Sail100, newloader.lua
--- Currently, BETA Loader
-
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Etruia Installation", HidePremium = false, IntroText = "Etruia installion UI is loading.."})
 local lplr = game.Players.LocalPlayer
-local arceus = false
-local tweenService = game:GetService('TweenService')
 local httpService = game:GetService('HttpService')
 local old = false
 local executor = (identifyexecutor or getexecutorname or function() return 'your executor' end)()
@@ -30,6 +24,9 @@ function section(sectionname, tab, text)
 })
 end
 
+if executor == 'Delta' or 'Vega X' then
+       lplr:Kick('Your executor: ' ..executor.. ' isnt supported! Use Fluxus.')
+end
 
 function testExecutor() 
 	if not isfile then
@@ -67,7 +64,6 @@ function ResetProfiles()
 end
 
 
-
 function InstallProfiles()
     local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/Render_Blurple6872274481.vapeprofile.txt")
     local File2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/Render_Blurple6872265039.vapeprofile.txt")
@@ -84,11 +80,11 @@ function InstallProfiles()
     writefile('vape/Profiles/6872265039.vapeprofile.txt', File6)
 end
 
-function uninstall() -- Installs ETRUIA v2.1
+function uninstall()
    lplr:Kick("No uninstall method yet. Reinstall Render.")
 end
--- UI 
 
+-- UI now lmao
 
 local MTab = Window:MakeTab({
     Name = "Main Tab",
@@ -118,8 +114,7 @@ local TTab = Window:MakeTab({
  section("TTabS3", TTab, "After, select the verison you want.")
  section("TTabS4", TTab, "Wait for it to finish installing and its done. Its that simple.")
 
-
- local ETab = Window:MakeTab({
+local ETab = Window:MakeTab({
     Name = "Install Etruia",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
@@ -134,8 +129,7 @@ local TTab = Window:MakeTab({
 
 section("Disclaimer", ETab, "Due to the rewrite on 2/3/2024, Etruia's past verisons have been removed.")
 
-    
- ETab:AddButton({
+ETab:AddButton({
     Name = "Install Etruia",
 	Callback = function()
         install() 
@@ -167,3 +161,4 @@ section("UUTabUpd7", UUTab, "1/30/24 | - Updated Test Installer")
 section("UUTabUpd7", UUTab, "2/3/24 | - Rewriten Etruia Installer")	
 section("UUTabUpd8", UUTab, "2/26/24 | Remade Etruia.")
 UUTab:AddLabel("More updates coming soon!")
+OrionLib:Init()
