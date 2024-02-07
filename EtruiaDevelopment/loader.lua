@@ -101,7 +101,7 @@ function InstallProfiles()
     writefile('vape/Profiles/6872274481.vapeprofiles.txt', File3)
     writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', File4)
     writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', Profile5)
-    writefile('6872265039.vapeprofile.txt', File6)
+    writefile('vape/Profiles/6872265039.vapeprofile.txt', File6)
 end
 
 
@@ -200,8 +200,8 @@ function CreateUI()
     section("UUTabUpd5", UUTab, "1/19/24 | - Updated Installer ")
     section("UUTabUpd6", UUTab, "1/30/24 | - Updated Profiles, Fixed Github formatting, removed some useless code.")
     section("UUTabUpd7", UUTab, "1/30/24 | - Updated Test Installer")	
-    section("UUTabUpd7", UUTab, "2/3/24 | - Rewriten Etruia Installer")	
-    section("UUTabUpd3", UUTab, "2-6-24 | Remake Etruia.")
+    section("UUTabUpd8", UUTab, "2/3/24 | - Rewriten Etruia Installer")	
+    section("UUTabUpd9", UUTab, "2-6-24 | Remake Etruia.")
     UUTab:AddLabel("More updates coming soon!")
 end
 CreateUI()
