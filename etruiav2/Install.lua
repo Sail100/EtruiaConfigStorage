@@ -12,9 +12,9 @@ end
 function notify(name, text)
   OrionLib:MakeNotification({
     Name = name,
-   Content = text,
-   Image = "rbxassetid://4483345998",
-   Time = 6,
+    Content = text,
+    Image = "rbxassetid://4483345998",
+    Time = 6,
 })
 end
 
@@ -65,6 +65,7 @@ end
 
 
 function InstallProfiles()
+    notify("Install", "Installing...
     local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/Render_Blurple6872274481.vapeprofile.txt")
     local File2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/Render_Blurple6872265039.vapeprofile.txt")
     local File3 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/UpdateFile/6872274481.vapeprofiles.txt")
@@ -78,6 +79,8 @@ function InstallProfiles()
     writefile('vape/Profiles/6872265039Render_BlurpleGUIPositions.vapeprofile.txt', File4)
     writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', Profile5)
     writefile('vape/Profiles/6872265039.vapeprofile.txt', File6)
+
+    notify("Install", "Finished!")
 end
 
 function uninstall()
@@ -132,7 +135,7 @@ section("Disclaimer", ETab, "Due to the rewrite on 2/3/2024, Etruia's past veris
 ETab:AddButton({
     Name = "Install Etruia",
 	Callback = function()
-        install() 
+        InstallProfiles() 
   	end    
  })
     
