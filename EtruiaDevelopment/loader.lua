@@ -1,11 +1,6 @@
--- Sail100, newloader.lua
--- Currently, BETA Loader
-
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Etruia Installation", HidePremium = false, IntroText = "Etruia installion UI is loading.."})
 local lplr = game.Players.LocalPlayer
-local arceus = false
-local tweenService = game:GetService('TweenService')
 local httpService = game:GetService('HttpService')
 local old = false
 local executor = (identifyexecutor or getexecutorname or function() return 'your executor' end)()
@@ -53,6 +48,10 @@ end
 
 testExecutor()
 
+if executor == 'Vega X' or 'Delta' then
+      lplr:Kick('Your executor: ' ..executor.. ' isnt supported! Use Fluxus.')
+end
+
 function ResetProfiles()
     if not isfolder('vape/Profiles') then
         makefolder('vape/Profiles')
@@ -81,7 +80,7 @@ function InstallProfiles()
 end
 
 
-function install() -- Installs ETRUIA
+function install() 
     print("Installing Etruia V2.1.1")
     wait(.5)
     notify("Installer", "Starting Install of Etruia. (v2.1.1)")
@@ -93,7 +92,7 @@ function install() -- Installs ETRUIA
 end
 
 
-function uninstall() -- Installs ETRUIA v2.1
+function uninstall() 
    lplr:Kick("No uninstall method yet. Reinstall Render.")
 end
 -- UI 
@@ -114,7 +113,6 @@ section("StatsS1", MTab, "Username: " ..lplr.Name)
 section("StatsS2", MTab, "ID: " ..lplr.UserId)
 section("StatsS3", MTab, "Game Name: " ..game.Name) 
 section("StatsS4", MTab, "Game ID: "..game.PlaceId)
-
 local TTab = Window:MakeTab({
     Name = "Tutorial",
     Icon = "rbxassetid://4483345998",
@@ -175,3 +173,4 @@ section("UUTabUpd7", UUTab, "1/30/24 | - Updated Test Installer")
 section("UUTabUpd8", UUTab, "2/3/24 | - Rewriten Etruia Installer")	
 section("UUTabUpd9", UUTab, "2-6-24 | Remake Etruia.")
 UUTab:AddLabel("More updates coming soon!")
+OrionLib:Init()
