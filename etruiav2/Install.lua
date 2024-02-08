@@ -24,9 +24,6 @@ function section(sectionname, tab, text)
 })
 end
 
-if executor ~= 'Fluxus' then
-       lplr:Kick('Your executor: ' ..executor.. ' isnt supported! Use Fluxus.')
-end
 
 function testExecutor() 
 	if not isfile then
