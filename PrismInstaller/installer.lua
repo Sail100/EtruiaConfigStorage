@@ -69,7 +69,7 @@ function InstallProfiles()
     writefile('vape/Profiles/6872274481.vapeprofile.txt', File1)
     writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File2)
     writefile('vape/Profiles/6872265039.vapeprofile.txt', File3)
-     notify("Install", "Successfully installed V0 of Prism.")
+    notify("Install", "Successfully installed V0 of Prism.")
 end
 
 function InstallProfiles1()
@@ -82,7 +82,7 @@ function InstallProfiles1()
     writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File2)
     writefile('vape/Profiles/6872265039.vapeprofile.txt', File3)
     
-    notify("Install", Successfully installed!")
+    notify("Install", "Sucessfully installed!")
 end
 
 function installfake()
@@ -95,7 +95,7 @@ function installfake()
     writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File2)
     writefile('vape/Profiles/6872265039.vapeprofile.txt', File3)
     
-    notify("Install", Successfully installed!")
+    notify("Install", "Successfully installed!")
 end
 
 function install()
