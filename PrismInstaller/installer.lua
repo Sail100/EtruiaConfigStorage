@@ -212,6 +212,6 @@ section("StatsS3", MTab, "Game Name: " ..game.Name)
 
 
 section("UUTabUpd1", UUTab, "2-3-24 | - Make Installer")
-section("UUTabUpd2", UUTab, "2-4-24 | - "Update log on Github!")
+section("UUTabUpd2", UUTab, "2-4-24 | - Update log on Github!")
 section("UUTabUpd3", UUTab, "2-9-24 | - Rewriten Code, fix, and new Installer Button!")
 UUTab:AddLabel("More updates coming soon!")
