@@ -2,7 +2,7 @@
 
 Last's update:
 Prism V4:
-``
+```
 [-] Remove old code for installer.
 [+] Fixed Installer
 [+] Rewriten Installer.
