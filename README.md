@@ -3,15 +3,16 @@
 Last's update:
 Prism V4:
 ```lua
-[+] Added "Hide Elk" toggle to Disabler 
-[-] Removed AntiCrash (useless)
-[-] Removed Atmosphere 
-[+] Added Theme (Lunar Vape New)
+[-] Remove old code for installer.
+[+] Fixed Installer
+[+] Rewriten Installer.
+[+] UPD NOTICE: WARNING: Disable AntiVoid if you want to be undetected
 ```
 
 Etruia:
 ```lua
-[+] Remade Etruia (old was kinda bad)
+[+] Fix Installer.
+
 ```
 # Prism V4
 Installer:
