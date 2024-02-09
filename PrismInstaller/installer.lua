@@ -188,7 +188,7 @@ section("StatsS3", MTab, "Game Name: " ..game.Name)
     })
     
     ETab:AddButton({
-    	Name = "Install Prism Update 2",
+    	Name = "Install Prism Closet Cheating Client",
 	    Callback = function()
             fakecloset() 
   	end    
