@@ -2,7 +2,7 @@
 
 Last's update:
 Prism V4:
-```lua
+``
 [-] Remove old code for installer.
 [+] Fixed Installer
 [+] Rewriten Installer.
@@ -10,9 +10,8 @@ Prism V4:
 ```
 
 Etruia:
-```lua
+```
 [+] Fix Installer.
-
 ```
 # Prism V4
 Installer:
