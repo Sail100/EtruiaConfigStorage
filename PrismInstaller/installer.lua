@@ -85,6 +85,20 @@ function InstallProfiles1()
     notify("Install", "Sucessfully installed!")
 end
 
+
+function InstallProfiles2()
+   notify("Install", "Installing V2..")
+    local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/PrismInstaller/update3/6872274481.vapeprofile.txt")
+    local File2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/PrismInstaller/update3/6872265039GUIPositions.vapeprofile.txt")
+    local File3 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/PrismInstaller/update3/6872265039.vapeprofile.txt")   
+
+    writefile('vape/Profiles/6872274481.vapeprofile.txt', File1)
+    writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File2)
+    writefile('vape/Profiles/6872265039.vapeprofile.txt', File3)
+    
+    notify("Install", "Sucessfully installed!")
+end
+
 function installfake()
    notify("Install", "Installing [fake] Closet Config..")
     local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/PrismInstaller/closetcheat/6872274481.vapeprofile.txt")
@@ -115,6 +129,17 @@ function install1()
     wait(1.1)
     notify("Installer", "Deleted your Profiles Folder. Writing Profiles..")
     InstallProfiles1()
+end
+
+
+function install2()
+    print("Installing Prism V2")
+    wait(.5)
+    notify("Installer", "Starting Install of Prism")
+    ResetProfiles()
+    wait(1.1)
+    notify("Installer", "Deleted your Profiles Folder. Writing Profiles..")
+    InstallProfiles2()
 end
 
 function fakecloset()
@@ -184,6 +209,15 @@ section("StatsS3", MTab, "Game Name: " ..game.Name)
     	Name = "Install Prism Update 1",
 	    Callback = function()
             install1() 
+  	end    
+    })
+
+
+
+ ETab:AddButton({
+    	Name = "Install Prism Update 2",
+	    Callback = function()
+            install2() 
   	end    
     })
     
