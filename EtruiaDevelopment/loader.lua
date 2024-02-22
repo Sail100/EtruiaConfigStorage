@@ -47,11 +47,11 @@ function testExecutor()
 end
 
 testExecutor()
-
+--[[
 if executor ~= 'Fluxus' then
       lplr:Kick('Your executor: ' ..executor.. ' isnt supported! Use Fluxus.')
 end
-
+-]]
 function ResetProfiles()
     if not isfolder('vape/Profiles') then
         makefolder('vape/Profiles')
