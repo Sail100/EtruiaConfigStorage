@@ -60,6 +60,55 @@ function ResetProfiles()
     end
 end
 
+local function writevapefile(file, data)
+    for i,v in next, ({'vape', 'vape/CustomModules', 'vape/assets', 'vape/Profiles'}) do 
+        if not isfolder(v) then 
+            makefolder(v) 
+        end
+    end
+    if not isfile('vape/commithash.txt') then 
+        writefile('vape/commithash.txt', 'main') 
+    end
+    writefile('vape/'..file, data)
+    task.wait(0.2)
+end
+
+-- credits to render
+
+function testUninstall()
+    notify("Prism", "Attempting to uninstall.")
+    local profiles = {}
+	local profilesfetched
+
+    task.spawn(function()
+        local res = httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/Settings', Method = 'GET'}).Body 
+        if res ~= '404: Not Found' then 
+			for i,v in next, httpservice:JSONDecode(res) do 
+				if type(v) == 'table' and v.name then 
+					table.insert(profiles, v.name) 
+				end
+			end
+		end
+		profilesfetched = true
+    end)
+
+    repeat task.wait() until profilesfetched
+    notify("Prism", "Fetched Profiles. Installing...")
+
+    local profiles = {Enabled = true}
+
+    for i,v in next, (profiles.Enabled and {} or profiles) do 
+        notify("Prism", "Downloading vape/Profiles/"..v, function()
+            local res = httprequest({Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Settings/'..v, Method = 'GET'}).Body 
+			if res ~= '404: Not Found' then 
+				writevapefile('Profiles/'..v, res) 
+			end
+        end)
+    end
+
+    notify("Prism", "Sucessfully uninstalled Prism.")
+end
+
 function InstallProfiles()
     notify("Install", "Installing V0 of Prism.")
     local File1 = httprequest({Url = "https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/PrismInstaller/6872274481.vapeprofile.txt", Method = 'GET'}).Body
@@ -196,7 +245,9 @@ function blueinstall()
 end
 
 function uninstall() 
-   lplr:Kick("No uninstall method yet. Reinstall Render.")
+  -- lplr:Kick("No uninstall method yet. Reinstall Render.")
+    notifty("Prism", "Running uninstaller. Please wait.")
+    testUninstall()
 end
 
 local MTab = Window:MakeTab({
