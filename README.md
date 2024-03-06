@@ -11,7 +11,8 @@ Prism V4:
 
 Etruia:
 ```
-[+] Fix Installer.
+[+] Deprecated Installer [Main]
+[+] Updated Etruia and loader.
 ```
 # Prism V4
 Installer:
