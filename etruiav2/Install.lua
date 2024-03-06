@@ -19,4 +19,5 @@ function notify(name, text)
 end
 
 notify("Etruia", "This installer is deprecated. Running new loadstring..")
+task.wait(10)
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/loader.lua')))()
