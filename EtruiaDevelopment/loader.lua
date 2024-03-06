@@ -110,23 +110,11 @@ local MTab = Window:MakeTab({
     
 section("StatsS01", MTab, "Welcome to Etruia's new Installer.")
 section("StatsS02", MTab, "Here, you install Etruia.")
-section("StatsS03", MTab, "If you need help, look at the Tutorial Tab.")
 section("StatsS", MTab, "Stats:")
 section("StatsS1", MTab, "Username: " ..lplr.Name)
 section("StatsS2", MTab, "ID: " ..lplr.UserId)
 section("StatsS3", MTab, "Game Name: " ..game.Name) 
 section("StatsS4", MTab, "Game ID: "..game.PlaceId)
-
-local TTab = Window:MakeTab({
-    Name = "Tutorial",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
-
-section("TTabS1", TTab, "**MAKE SURE YOU HAVE RENDER INSTALLED WITH PROFILES**")
-section("TTabS2", TTab, "To install Etruia, first go into the tab called: 'Install Etruia' ")
-section("TTabS3", TTab, "After, select the verison you want.")
-section("TTabS4", TTab, "Wait for it to finish installing and its done. Its that simple.")
 
 local ETab = Window:MakeTab({
 	Name = "Install Etruia",
