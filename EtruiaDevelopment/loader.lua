@@ -141,7 +141,7 @@ local UTab = Window:MakeTab({
 })
 
 ETab:AddButton({
-Name = "Install Etruia [Etruia V2.30],
+Name = "Install Etruia [Etruia V2.30]",
 	 Callback = function()
           install()
   	end    
