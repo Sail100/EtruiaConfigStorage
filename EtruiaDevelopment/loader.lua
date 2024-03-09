@@ -749,7 +749,6 @@ function InstallProfiles()
     loadfile('vape/NewMainScript.lua')()
 end
 
-
 local guiObject = installmain
 local mf = MainFrame
 local close = close
