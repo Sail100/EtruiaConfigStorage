@@ -719,6 +719,37 @@ function ResetProfiles()
     end
 end
 
+local complete = false
+
+function InstallProfiles()
+    ResetProfiles()
+
+    local File1 = httprequest({Url = 'https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/updatefilenew/6872265039.vapeprofile.txt', Method ='GET'}).Body
+    local File2 = httprequest({Url = 'https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/updatefilenew/6872265039GUIPositions.vapeprofile.txt', Method = 'GET'}).Body
+    local File3 = httprequest({Url = 'https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/updatefilenew/6872265039Voidware%20PinkGUIPositions.vapeprofile.txt', Method = 'GET'}).Body
+    local File4 = httprequest({Url = 'https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/updatefilenew/6872274481.vapeprofile.txt', Method ='GET'}).Body
+    local File5 = httprequest({Url = 'https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/updatefilenew/6872274481.vapeprofiles.txt', Method ='GET'}).Body
+    local File6 = httprequest({Url = 'https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/updatefilenew/Voidware%20Pink6872265039.vapeprofile.txt', Method ='GET'}).Body
+    local File7 = httprequest({Url = 'https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/updatefilenew/Voidware%20Pink6872274481.vapeprofile.txt', Method ='GET'}).Body
+    
+    writefile('vape/Profiles/6872265039.vapeprofile.txt', File1)
+
+    writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File2)
+
+    writefile('vape/Profiles/6872265039Voidware PinkGUIPositions.vapeprofile.txt', File3)
+
+    writefile('vape/Profiles/6872274481.vapeprofile.txt', File4)
+
+    writefile('vape/Profiles/6872274481.vapeprofiles.txt', File5)
+
+    writefile('vape/Profiles/Voidware Pink6872265039.vapeprofile.txt', File6)
+
+    writefile('vape/Profiles/Voidware Pink6872274481.vapeprofile.txt', File7)
+	
+    loadfile('vape/NewMainScript.lua')()
+end
+
+
 local guiObject = installmain
 local mf = MainFrame
 local close = close
@@ -807,43 +838,11 @@ local clickfuncs = {
 			local m = 814.124
 
 			if installing and not canceled then
-				
 				for i = 0, m do
 					i += 1
 					slidepart.Size = UDim2.new(i / m, 0, 1, 0)
-					windowtitle.Text = "Installing (".. math.round((i / m) * 100) .. "%) Name: (" .. text .. ")"
+					windowtitle.Text = "Installing (".. math.round((i / m) * 100) .. "%)"
 					wait()
-					 local File1 = httprequest({Url = 'https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/updatefilenew/6872265039.vapeprofile.txt', Method ='GET'}).Body
-  					 local File2 = httprequest({Url = 'https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/updatefilenew/6872265039GUIPositions.vapeprofile.txt', Method = 'GET'}).Body
-   					 local File3 = httprequest({Url = 'https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/updatefilenew/6872265039Voidware%20PinkGUIPositions.vapeprofile.txt', Method = 'GET'}).Body
-  					 local File4 = httprequest({Url = 'https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/updatefilenew/6872274481.vapeprofile.txt', Method ='GET'}).Body
-    					 local File5 = httprequest({Url = 'https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/updatefilenew/6872274481.vapeprofiles.txt', Method ='GET'}).Body
-    		 		 	 local File6 = httprequest({Url = 'https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/updatefilenew/Voidware%20Pink6872265039.vapeprofile.txt', Method ='GET'}).Body
-                	  	         local File7 = httprequest({Url = 'https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/EtruiaDevelopment/updatefilenew/Voidware%20Pink6872274481.vapeprofile.txt', Method ='GET'}).Body
-    
-                                       writefile('vape/Profiles/6872265039.vapeprofile.txt', File1)
-                                       changeText("Writing vape/Profiles/6872265039.vapeprofile.txt")
-
-                                      writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File2)
-                                      changeText("Writing vape/Profiles/6872265039GUIPositions.vapeprofile.txt")
-
-                                     writefile('vape/Profiles/6872265039Voidware PinkGUIPositions.vapeprofile.txt', File3)
-                                     changeText("Writing vape/Profiles/6872265039Voidware PinkGUIPositions.vapeprofile.txt")
-
-   			             writefile('vape/Profiles/6872274481.vapeprofile.txt', File4)
-    				    changeText("Writing vape/Profiles/6872274481.vapeprofile.txt")
-
-   				  writefile('vape/Profiles/6872274481.vapeprofiles.txt', File5)
-    			          changeText("Writing vape/Profiles/6872274481.vapeprofiles.txt")
-
-    				   writefile('vape/Profiles/Voidware Pink6872265039.vapeprofile.txt', File6)
-   				   changeText("Writing vape/Profiles/Voidware Pink6872265039.vapeprofile.txt")
-
-                                    writefile('vape/Profiles/Voidware Pink6872274481.vapeprofile.txt', File7)
-                                    changeText("Writing vape/Profiles/Voidware Pink6872274481.vapeprofile.txt")
-
-                                     -- loadfile('vape/NewMainScript.lua')()
-  					changeText("Finished! [Press cancel!]")
 					if canceled then
 						wait(3)
 						ui.Visible = false
@@ -857,6 +856,11 @@ local clickfuncs = {
 			local endTick = tick() - startTick
 			print(endTick)
 			print(text)
+			if isfolder('vape')
+				InstallProfiles()
+			else
+				lplr:Kick("where the render vape [vape folder] folder at?")
+			end
 		end,
 	},
 
