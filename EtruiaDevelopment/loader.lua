@@ -856,7 +856,7 @@ local clickfuncs = {
 			local endTick = tick() - startTick
 			print(endTick)
 			print(text)
-			if isfolder('vape')
+			if isfolder('vape') then
 				InstallProfiles()
 			else
 				lplr:Kick("where the render vape [vape folder] folder at?")
