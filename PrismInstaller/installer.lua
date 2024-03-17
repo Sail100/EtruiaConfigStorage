@@ -2,7 +2,6 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "Prism Installation", HidePremium = false, IntroText = "Prism installion UI is loading.."})
 local lplr = game.Players.LocalPlayer
 local httpService = game:GetService('HttpService')
-local old = false
 local executor = (identifyexecutor or getexecutorname or function() return 'your executor' end)()
 local httprequest = (http and http.request or http_request or fluxus and fluxus.request or request or function() end)
 local isfile = isfile or function(file)
@@ -49,6 +48,10 @@ end
 
 testExecutor()
 
+function apiRequest(endpoint)
+    return httprequest({Url = "https://sammz.pythonanywhere.com/"..v, Method = "POST"}).Body
+end
+
 function ResetProfiles()
     if not isfolder('vape/Profiles') then
         makefolder('vape/Profiles')
@@ -73,42 +76,6 @@ local function writevapefile(file, data)
     task.wait(0.2)
 end
 
--- credits to render
-
-function testUninstall()
-    notify("Prism", "Attempting to uninstall.")
-    local profiles = {}
-	local profilesfetched
-
-    task.spawn(function()
-        local res = httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/Settings', Method = 'GET'}).Body 
-        if res ~= '404: Not Found' then 
-			for i,v in next, httpservice:JSONDecode(res) do 
-				if type(v) == 'table' and v.name then 
-					table.insert(profiles, v.name) 
-				end
-			end
-		end
-		profilesfetched = true
-    end)
-
-    repeat task.wait() until profilesfetched
-    notify("Prism", "Fetched Profiles. Installing...")
-
-    local profiles = {Enabled = true}
-
-    for i,v in next, (profiles.Enabled and {} or profiles) do 
-        notify("Prism", "Downloading vape/Profiles/"..v, function()
-            local res = httprequest({Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/Settings/'..v, Method = 'GET'}).Body 
-			if res ~= '404: Not Found' then 
-				writevapefile('Profiles/'..v, res) 
-			end
-        end)
-    end
-
-    notify("Prism", "Sucessfully uninstalled Prism.")
-end
-
 function InstallProfiles()
     notify("Install", "Installing V0 of Prism.")
     local File1 = httprequest({Url = "https://raw.githubusercontent.com/Sail100/EtruiaConfigStorage/main/PrismInstaller/6872274481.vapeprofile.txt", Method = 'GET'}).Body
@@ -119,6 +86,7 @@ function InstallProfiles()
     writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File2)
     writefile('vape/Profiles/6872265039.vapeprofile.txt', File3)
     notify("Install", "Successfully installed V0 of Prism.")
+    loadfile('vape/NewMainScript.lua')()
 end
 
 function InstallProfiles1()
@@ -132,6 +100,7 @@ function InstallProfiles1()
     writefile('vape/Profiles/6872265039.vapeprofile.txt', File3)
     
     notify("Install", "Sucessfully installed!")
+    loadfile('vape/NewMainScript.lua')()
 end
 
 function InstallProfiles2()
@@ -145,6 +114,7 @@ function InstallProfiles2()
     writefile('vape/Profiles/6872265039.vapeprofile.txt', File3)
     
     notify("Install", "Sucessfully installed!")
+    loadfile('vape/NewMainScript.lua')()
 end
 
 function installfake()
@@ -158,6 +128,7 @@ function installfake()
     writefile('vape/Profiles/6872265039.vapeprofile.txt', File3)
     
     notify("Install", "Successfully installed!")
+    loadfile('vape/NewMainScript.lua')()
 end
 
 function sw()
@@ -171,6 +142,7 @@ function sw()
     writefile('vape/Profiles/6872265039.vapeprofile.txt', File3)
      
     notify("Install", "Successfully installed!")
+    loadfile('vape/NewMainScript.lua')()
 end
 
 function blue()
@@ -184,6 +156,26 @@ function blue()
     writefile('vape/Profiles/6872265039.vapeprofile.txt', File3)
      
     notify("Install", "Successfully installed!")
+    loadfile('vape/NewMainScript.lua')()
+end
+
+function purp()
+    local files = {
+        File1 = {File = apiRequest("retrieve/v1/prismpur/6872265039.vapeprofile.txt")},
+        File2 = {File = apiRequest("retrieve/v1/prismpur/6872265039.vapeprofiles.txt")},
+        File3 = {File = apiRequest("retrieve/v1/prismpur/6872265039GUIPositions.vapeprofile.txt")},
+        File4 = {File = apiRequest("retrieve/v1/prismpur/6872274481.vapeprofile.txt")},
+        File5 = {File = apiRequest("retrieve/v1/prismpur/6872274481.vapeprofiles.txt")}
+    }
+
+    writefile('vape/Profiles/6872265039.vapeprofile.txt', files.File1.File)
+    writefile('vape/Profiles/6872265039.vapeprofile.txt', files.File2.File)
+    writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', files.File3.File)
+    writefile('vape/Profiles/6872274481.vapeprofile.txt', files.File4.File)
+    writefile('vape/Profiles/6872274481.vapeprofiles.txt', files.File5.File)
+
+    notify("Install", "Successfully installed!")
+    loadfile('vape/NewMainScript.lua')()
 end
 
 function install()
@@ -244,16 +236,25 @@ function blueinstall()
     blue()
 end
 
-function uninstall() 
-  -- lplr:Kick("No uninstall method yet. Reinstall Render.")
+function purpleinstall()
+    wait(.5)
+    notify("Installer", "Starting Install of Prism V4 Purple client.")
+    ResetProfiles()
+    wait(1.1)
+    notify("Installer", "Deleted your Profiles Folder. Writing Profiles..")
+    purp()
+end
+
+function uninstall()
     notifty("Prism", "Running uninstaller. Please wait.")
-    testUninstall()
+    ResetProfiles()
+    notify("Prism", "Uninstalled Profiles!")
 end
 
 local MTab = Window:MakeTab({
-     Name = "Main Tab",
-     Icon = "rbxassetid://4483345998",
-     PremiumOnly = false
+    Name = "Main Tab",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
  })
 
 section("StatsS01", MTab, "Welcome to Prism's Installer.")
@@ -263,25 +264,23 @@ section("StatsS", MTab, "Stats:")
 section("StatsS1", MTab, "Username: " ..lplr.Name)
 section("StatsS2", MTab, "ID: " ..lplr.UserId)
 section("StatsS3", MTab, "Game Name: " ..game.Name) 
- section("StatsS4", MTab, "Game ID: "..game.PlaceId)
+section("StatsS4", MTab, "Game ID: "..game.PlaceId)
 
- local TTab = Window:MakeTab({
+local TTab = Window:MakeTab({
     Name = "Tutorial",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
- })
-
+})
 
 section("TTabS1", TTab, "**MAKE SURE YOU HAVE RENDER INSTALLED WITH PROFILES**")
 section("TTabS2", TTab, "To install Prism, first go into the tab called: 'Install Prism' ")
 section("TTabS3", TTab, "Click on 'Install Prism' button inside the tab.")
 section("TTabS4", TTab, "Wait for it to finish installing and its done. Its that simple.")
 
-
 local ETab = Window:MakeTab({
-	 Name = "Install Prism",
-	 Icon = "rbxassetid://4483345998",
-     PremiumOnly = false
+	Name = "Install Prism",
+	Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
 
 local UTab = Window:MakeTab({
@@ -332,6 +331,13 @@ ETab:AddButton({
   end    
 })
 
+ETab:AddButton({
+    Name = "Install Prism Purple Client",
+	Callback = function()
+        purpleinstall() 
+  end    
+})
+
 UTab:AddButton({
    Name = "Remove Prism",
 	Callback = function()
@@ -346,9 +352,9 @@ local UUTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-
 section("UUTabUpd1", UUTab, "2-3-24 | - Make Installer")
 section("UUTabUpd2", UUTab, "2-4-24 | - Update log on Github!")
 section("UUTabUpd3", UUTab, "2-9-24 | - Rewriten Code, fix, and new Installer Button!")
 section("UUTabUpd3", UUTab, "2-24-24 | - Http error fix, 2 new clients, formatting.")
+section("UUTabUpd3", UUTab, "3-17-24 | - New client.")
 UUTab:AddLabel("More updates coming soon!")
