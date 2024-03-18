@@ -49,7 +49,7 @@ end
 testExecutor()
 
 function apiRequest(endpoint)
-    return httprequest({Url = "https://sammz.pythonanywhere.com/"..v, Method = "POST"}).Body
+    return game:HttpGet("https://sammz.pythonanywhere.com/"..endpoint)
 end
 
 function ResetProfiles()
